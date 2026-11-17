@@ -411,7 +411,10 @@ def index():
     content += '<section><h2>先週発売（まだ買える新商品）</h2></section>\n'
     content += _grouped_by_date(last_week) if last_week else '<p class="intro">先週発売の新商品は記録されていません。</p>\n'
 
-    return _render(SITE_NAME, DESCRIPTION, SITE_URL + "/", content, is_top=True)
+    # サブドメインは WebSite 構造化データが無いと検索結果のサイト名が親（ネタフル）になる（コンビニポチで実例）
+    website = _jsonld({"@context": "https://schema.org", "@type": "WebSite",
+                       "name": SITE_NAME, "url": SITE_URL + "/"})
+    return _render(SITE_NAME, DESCRIPTION, SITE_URL + "/", content, jsonld=website, is_top=True)
 
 
 @app.route("/date/<date_str>/")
