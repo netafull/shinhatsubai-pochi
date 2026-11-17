@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://shinhatsubai.netaful.jp/sitemap.xml

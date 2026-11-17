@@ -1,0 +1,185 @@
+/* 新発売ポチ — ポチシリーズ共通のデザイン（道の駅ポチの style.css を土台に流用）。
+   アクセントは「新発売」の赤札を思わせる深い橙赤系。ダークモードは変数の差し替えで対応する。
+   白文字を載せる所（.ms-official）は --on-accent / --accent の組み合わせで 4.5:1 以上を保つ。
+   クラス名の ms- 接頭辞は土台の道の駅ポチと共通の骨格という意味でそのまま使っている。 */
+:root {
+  --bg: #fdf8f4; --card: #ffffff; --text: #2b211c; --muted: #75655c;
+  --accent: #c2410c; --accent-soft: #fdeee3; --on-accent: #ffffff;
+  --line: #eadbd0;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #171210; --card: #231b17; --text: #f2e9e2; --muted: #b8a396;
+    --accent: #f59e6c; --accent-soft: #3a2718; --on-accent: #241105;
+    --line: #3d2f26;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+  color: var(--text); background: var(--bg); line-height: 1.7;
+}
+a { color: var(--accent); }
+
+/* ヘッダー: ロゴ＋サイト名＋説明。h1 になるのはトップだけ（.site-title は見た目を共通にする） */
+.site-header { max-width: 980px; margin: 0 auto; padding: 20px 16px 8px; }
+.site-title { margin: 0; font-size: 22px; font-weight: 700; line-height: 1.3; }
+.site-title a { display: inline-flex; align-items: center; gap: 8px; color: var(--text); text-decoration: none; }
+.site-title img { width: 44px; height: 44px; }
+.site-header .tagline { margin: 4px 0 0; font-size: 13px; color: var(--muted); }
+
+main { max-width: 980px; margin: 0 auto; padding: 0 16px 40px; }
+
+.hero h1 { font-size: 1.6rem; line-height: 1.4; margin: 16px 0 6px; }
+.hero .intro { margin: 8px 0 16px; }
+.crumbs { font-size: 0.8rem; color: var(--muted); margin: 0 0 8px; }
+.crumbs a { color: var(--accent); text-decoration: none; }
+
+/* 節の見出し: 左に縦のバー（アクセント色） */
+h2 {
+  font-size: 1.1rem; line-height: 1.4; margin: 28px 0 12px;
+  padding-left: 10px; border-left: 4px solid var(--accent);
+}
+
+/* 導線チップ */
+.ms-nav-chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.ms-nav-chips a {
+  display: inline-flex; align-items: baseline; gap: 6px;
+  padding: 7px 16px; border: 1px solid var(--line); border-radius: 999px;
+  background: var(--card); color: var(--text); text-decoration: none; font-weight: 600; font-size: 0.9rem;
+}
+.ms-nav-chips a:hover { border-color: var(--accent); background: var(--accent-soft); }
+.ms-nav-chips small { color: var(--muted); font-weight: 400; }
+
+/* 設備フィルタ（県ページ。JSでAND絞り込み、無効時は全件表示） */
+.ms-filter {
+  background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+  padding: 12px 16px; margin: 0 0 16px;
+}
+.ms-filter-title { font-size: 0.95rem; margin: 0 0 8px; }
+.ms-filter-checks { display: flex; flex-wrap: wrap; gap: 8px; }
+.ms-filter-chip {
+  display: inline-flex; align-items: center; gap: 6px; cursor: pointer;
+  padding: 5px 12px; border: 1px solid var(--line); border-radius: 999px;
+  background: var(--bg); font-size: 0.88rem; font-weight: 600;
+}
+.ms-filter-chip:hover { background: var(--accent-soft); }
+.ms-filter-chip:has(input:checked) { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
+.ms-filter-input { accent-color: var(--accent); width: 1rem; height: 1rem; margin: 0; }
+.ms-filter-status { display: flex; align-items: center; gap: 12px; margin: 10px 0 0; }
+.ms-filter-count { font-weight: 700; color: var(--accent); }
+.ms-filter-reset {
+  padding: 4px 12px; border: 1px solid var(--accent); border-radius: 999px;
+  background: var(--card); color: var(--accent); font: inherit; font-weight: 700; font-size: 0.85rem; cursor: pointer;
+}
+.ms-filter-reset:hover { background: var(--accent-soft); }
+.ms-filter-empty { margin: 10px 0 0; color: var(--muted); }
+.ms-card[hidden] { display: none; }
+
+/* 駅カード（名前 → 駐車台数 → 設備チップ → 事実 → ボタン） */
+.ms-cards { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+@media (min-width: 700px) { .ms-cards { grid-template-columns: 1fr 1fr; } }
+.ms-card {
+  background: transparent; border: none; border-bottom: 1px solid var(--line);
+  border-radius: 0; padding: 10px 2px; box-shadow: none;
+  display: flex; gap: 12px; align-items: flex-start;
+}
+.ms-card-main { flex: 1; min-width: 0; }
+.ms-card-side { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; flex-shrink: 0; }
+.ms-card-side .ms-parking { margin: 0; }
+.ms-card-side .ms-card-links { margin: 0; flex-direction: column; align-items: flex-end; }
+.ms-card-head { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin: 0 0 2px; }
+.ms-card-head h3 { margin: 0; font-size: 1.02rem; line-height: 1.4; }
+.ms-card-head h3 a { color: var(--text); text-decoration: none; }
+.ms-card-head h3 a:hover { color: var(--accent); text-decoration: underline; }
+.ms-pref {
+  font-size: 0.75rem; font-weight: 700; color: var(--accent); background: var(--accent-soft);
+  border-radius: 999px; padding: 1px 9px; text-decoration: none;
+}
+
+/* 駐車台数（カードでいちばん目立つ数字。日帰り温泉ポチの料金表示と同じ扱い） */
+.ms-parking { margin: 0 0 8px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 18px; }
+.ms-parking-item { display: inline-flex; align-items: baseline; gap: 6px; }
+.ms-parking-label { font-size: 0.85rem; font-weight: 700; color: var(--muted); }
+.ms-parking-num { font-size: 1.5rem; font-weight: 800; line-height: 1.2; color: var(--accent); }
+.ms-parking--big .ms-parking-num { font-size: 1.9rem; }
+.ms-parking-unknown { font-size: 0.95rem; color: var(--muted); }
+
+/* 設備チップ */
+.ms-chips { list-style: none; margin: 0 0 4px; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.ms-chip {
+  padding: 1px 9px; border: 1px solid var(--line); border-radius: 999px;
+  font-size: 0.78rem; font-weight: 700; line-height: 1.7; color: var(--muted);
+}
+
+/* 事実（ラベル付きの表） */
+.ms-facts-list { margin: 8px 0 0; border-top: 1px solid var(--line); }
+.ms-facts-list > div {
+  display: grid; grid-template-columns: 5.4em 1fr; gap: 2px 10px;
+  padding: 6px 0; border-bottom: 1px solid var(--line);
+}
+.ms-facts-list dt { font-size: 0.82rem; font-weight: 700; color: var(--muted); line-height: 1.7; }
+.ms-facts-list dd { margin: 0; line-height: 1.6; overflow-wrap: anywhere; }
+.ms-facts-list dd a { text-underline-offset: 3px; }
+.ms-unknown { color: var(--muted); }
+.ms-chips-note { margin: 8px 0 4px; font-size: 0.8rem; color: var(--muted); }
+
+/* ボタン */
+.ms-card-links { margin: 8px 0 0; display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.ms-detail, .ms-official {
+  display: inline-flex; align-items: center; min-height: 30px; padding: 0 12px;
+  border-radius: 999px; text-decoration: none; font-weight: 700; font-size: 0.82rem;
+}
+.ms-detail { border: 1px solid var(--accent); color: var(--accent); }
+.ms-detail:hover { background: var(--accent-soft); }
+.ms-official { border: 1px solid var(--accent); background: var(--accent); color: var(--on-accent); }
+.ms-official:hover { filter: brightness(1.08); }
+.ms-official-row { margin: 12px 0 0; }
+
+/* 出典ブロック */
+.ms-sources {
+  margin-top: 24px; padding: 12px 16px; background: var(--card);
+  border: 1px solid var(--line); border-radius: 14px; font-size: 0.9rem;
+}
+.ms-sources h2 { font-size: 0.95rem; margin: 0 0 6px; }
+.ms-sources p { margin: 4px 0; }
+.ms-source-link { overflow-wrap: anywhere; color: var(--muted); font-size: 0.82rem; }
+
+
+.site-footer {
+  border-top: 1px solid var(--line); padding: 16px; font-size: 0.8rem; color: var(--muted);
+  max-width: 980px; margin: 0 auto;
+}
+.site-footer p { margin: 4px 0; }
+.site-footer a { color: var(--accent); }
+
+/* 関連サイト（ポチシリーズ）。折り返すチップ。375px幅でも横スクロールしない */
+.site-footer nav.sites { margin-top: 12px; display: flex; gap: 8px; flex-wrap: wrap; align-items: baseline; }
+.site-footer nav.sites .lbl { font-size: 0.75rem; color: var(--muted); }
+.site-footer nav.sites a {
+  font-size: 0.78rem; padding: 3px 10px; border: 1px solid var(--line); border-radius: 999px;
+  background: var(--card); color: var(--text); text-decoration: none; overflow-wrap: anywhere;
+}
+.site-footer nav.sites a:hover { border-color: var(--accent); background: var(--accent-soft); }
+.site-footer nav.sites a .lbl { color: var(--muted); }
+
+/* 新発売ポチ固有の追加分 */
+/* 説明文の抜粋（商品カード） */
+.sh-desc { margin: 2px 0 0; font-size: 0.85rem; line-height: 1.5; color: var(--muted);
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.ms-card .ms-parking { margin: 2px 0 0; }
+.ms-card .ms-parking-num { font-size: 1.05rem; }
+.ms-card .ms-parking-label { font-size: 0.8rem; }
+/* 見出し脇の件数 */
+.sh-count { margin-left: 8px; font-size: 0.85rem; font-weight: 400; color: var(--muted); }
+/* カード見出しのバッジ列（チェーン名ピル＋カテゴリチップ） */
+.ms-card-head .ms-chip { margin: 0; }
+/* 価格の税込/税抜ラベルは数字の後ろに小さく */
+.ms-parking-label { white-space: nowrap; }
+
+/* 一覧は区切り線リスト（パターンC）。詳細ボタンは小さめに */
+.ms-card-side .ms-official { min-height: 26px; padding: 0 10px; font-size: 0.78rem; }
+
+/* 販売地域ラベル（同名・同発売日で地域違いの商品の見分け用） */
+.region { margin-left: 6px; font-size: 0.8rem; font-weight: 400; color: var(--muted); }
