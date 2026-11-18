@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <defs>
+    <linearGradient id="don-bowl" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#4a78bd"/>
+      <stop offset="1" stop-color="#2b4d84"/>
+    </linearGradient>
+    <linearGradient id="don-katsu" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#cf8f3d"/>
+      <stop offset="1" stop-color="#a5661f"/>
+    </linearGradient>
+    <linearGradient id="don-rice" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#eadfc9"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="24" cy="43" rx="13" ry="2.2" fill="#402a18" opacity="0.10"/>
+  <path d="M6.5 21 L41.5 21 C41.5 33 34.5 40.5 24 40.5 C13.5 40.5 6.5 33 6.5 21 Z" fill="url(#don-bowl)"/>
+  <path d="M6.5 26.5 L41.5 26.5 C41 30 39.8 33 37.8 35.5 L10.2 35.5 C8.2 33 7 30 6.5 26.5 Z" fill="#ffffff" opacity="0.16"/>
+  <rect x="18.5" y="40" width="11" height="3" rx="1.4" fill="#223c66"/>
+  <ellipse cx="24" cy="20" rx="15.5" ry="5.5" fill="url(#don-rice)"/>
+  <g fill="url(#don-katsu)">
+    <rect x="11.5" y="13.5" width="10" height="6.5" rx="3.2" transform="rotate(-8 16.5 16.7)"/>
+    <rect x="20" y="11" width="10.5" height="6.5" rx="3.2" transform="rotate(4 25.2 14.2)"/>
+    <rect x="28.5" y="13.5" width="10" height="6.5" rx="3.2" transform="rotate(10 33.5 16.7)"/>
+  </g>
+  <circle cx="18" cy="15.5" r="1.2" fill="#5da24f"/>
+  <circle cx="26.5" cy="13.8" r="1.2" fill="#5da24f"/>
+  <circle cx="31" cy="17" r="1.2" fill="#5da24f"/>
+  <ellipse cx="15" cy="26" rx="3" ry="5" fill="#ffffff" opacity="0.20" transform="rotate(12 15 26)"/>
+</svg>

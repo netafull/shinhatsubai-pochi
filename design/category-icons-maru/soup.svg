@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <defs>
+    <linearGradient id="sou-cup" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f4ecdd"/>
+      <stop offset="1" stop-color="#d9c8ab"/>
+    </linearGradient>
+    <linearGradient id="sou-soup" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f8c168"/>
+      <stop offset="1" stop-color="#eda63e"/>
+    </linearGradient>
+    <linearGradient id="sou-spoon" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#dde3e8"/>
+      <stop offset="1" stop-color="#aeb8c0"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="24" cy="42" rx="15" ry="2.6" fill="#402a18" opacity="0.10"/>
+  <g stroke="#b09a80" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.55">
+    <path d="M18 14 C17 11.5 19 10.5 18 8"/>
+    <path d="M26 14 C25 11.5 27 10.5 26 8"/>
+  </g>
+  <rect x="33.5" y="4.5" width="4" height="15" rx="2" fill="url(#sou-spoon)" transform="rotate(24 35.5 12)"/>
+  <ellipse cx="24" cy="40.5" rx="16" ry="3.2" fill="#e6dac4"/>
+  <path d="M9.5 21 L38.5 21 C38.5 32 32.5 38.5 24 38.5 C15.5 38.5 9.5 32 9.5 21 Z" fill="url(#sou-cup)"/>
+  <ellipse cx="24" cy="21" rx="14.5" ry="4.2" fill="url(#sou-soup)"/>
+  <path d="M16 20.2 A9.5 3.2 0 0 1 30 19" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" fill="none" opacity="0.65"/>
+  <ellipse cx="15.5" cy="27" rx="2.4" ry="4.2" fill="#ffffff" opacity="0.35" transform="rotate(12 15.5 27)"/>
+</svg>

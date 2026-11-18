@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <defs>
+    <linearGradient id="ben-box" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#b8453a"/>
+      <stop offset="1" stop-color="#7e2a21"/>
+    </linearGradient>
+    <linearGradient id="ben-rice" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#ece4d2"/>
+    </linearGradient>
+    <linearGradient id="ben-age" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#dda244"/>
+      <stop offset="1" stop-color="#b06f24"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="24" cy="41.5" rx="16" ry="2.4" fill="#402a18" opacity="0.10"/>
+  <rect x="4.5" y="11" width="39" height="27" rx="5" fill="url(#ben-box)"/>
+  <rect x="8" y="14.5" width="32" height="20" rx="3" fill="#f6ead3"/>
+  <rect x="9.5" y="16" width="13.5" height="17" rx="2" fill="url(#ben-rice)"/>
+  <circle cx="13.5" cy="20.5" r="1.1" fill="#3a3230"/>
+  <circle cx="18" cy="24" r="1.1" fill="#3a3230"/>
+  <circle cx="14.5" cy="28.5" r="1.1" fill="#3a3230"/>
+  <circle cx="19" cy="19" r="1.1" fill="#3a3230"/>
+  <rect x="25" y="16" width="13.5" height="7.5" rx="2" fill="#f6c945"/>
+  <rect x="25" y="16" width="13.5" height="3" rx="1.5" fill="#ffd968"/>
+  <circle cx="29" cy="29.5" r="4.2" fill="url(#ben-age)"/>
+  <circle cx="35.5" cy="28.5" r="3.6" fill="url(#ben-age)"/>
+  <circle cx="32.5" cy="32.5" r="3.2" fill="#69a84f"/>
+</svg>

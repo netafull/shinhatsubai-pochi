@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <defs>
+    <linearGradient id="ice-cone" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e8b264"/>
+      <stop offset="1" stop-color="#c07f33"/>
+    </linearGradient>
+    <linearGradient id="ice-soft" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff0f3"/>
+      <stop offset="1" stop-color="#ffadc2"/>
+    </linearGradient>
+    <clipPath id="ice-conec">
+      <path d="M15.5 24.5 L32.5 24.5 L24 44 Z"/>
+    </clipPath>
+  </defs>
+  <ellipse cx="24" cy="45" rx="8" ry="1.8" fill="#402a18" opacity="0.10"/>
+  <path d="M15.5 24.5 L32.5 24.5 L24 44 Z" fill="url(#ice-cone)"/>
+  <g clip-path="url(#ice-conec)" stroke="#a5661f" stroke-width="1.4" opacity="0.55">
+    <path d="M12 30 L30 44 M12 38 L22 46 M36 30 L18 44 M36 38 L26 46"/>
+  </g>
+  <ellipse cx="24" cy="23.5" rx="10.5" ry="5" fill="url(#ice-soft)"/>
+  <ellipse cx="24" cy="18" rx="8.2" ry="4.4" fill="url(#ice-soft)"/>
+  <path d="M24 7.5 C27.5 7.5 29.5 10 29.3 12.8 C29.1 15.8 26.8 17.3 24 17.3 C21.2 17.3 18.9 15.6 18.8 12.8 C18.7 9.8 20.8 7.5 24 7.5 Z" fill="url(#ice-soft)"/>
+  <path d="M24 7.5 C25.8 5.8 28.3 5.6 29.6 6.8 C28.2 8 26.2 8.2 24 7.5 Z" fill="url(#ice-soft)"/>
+  <ellipse cx="19.8" cy="20.5" rx="3" ry="1.6" fill="#ffffff" opacity="0.55" transform="rotate(-14 19.8 20.5)"/>
+</svg>

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <defs>
+    <linearGradient id="oni-rice" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#e7dfcf"/>
+    </linearGradient>
+    <linearGradient id="oni-nori" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3f7050"/>
+      <stop offset="1" stop-color="#26452f"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="24" cy="42.5" rx="13" ry="2.4" fill="#402a18" opacity="0.10"/>
+  <path d="M24 5.5 C27 5.5 29.2 8.6 31.2 12.8 L39.8 32.6 C41.9 37.5 38.9 41.5 33.9 41.5 L14.1 41.5 C9.1 41.5 6.1 37.5 8.2 32.6 L16.8 12.8 C18.8 8.6 21 5.5 24 5.5 Z" fill="url(#oni-rice)"/>
+  <ellipse cx="18.5" cy="15" rx="4.5" ry="6.5" fill="#ffffff" opacity="0.55" transform="rotate(-18 18.5 15)"/>
+  <rect x="17.5" y="28.5" width="13" height="12" rx="2.5" fill="url(#oni-nori)"/>
+  <rect x="19.5" y="30.5" width="3" height="8" rx="1.5" fill="#ffffff" opacity="0.18"/>
+</svg>

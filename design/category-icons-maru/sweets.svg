@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <defs>
+    <linearGradient id="swe-cream" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#f3e6cf"/>
+    </linearGradient>
+    <linearGradient id="swe-sponge" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f8d67c"/>
+      <stop offset="1" stop-color="#edb84e"/>
+    </linearGradient>
+    <linearGradient id="swe-berry" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f0563d"/>
+      <stop offset="1" stop-color="#cf3520"/>
+    </linearGradient>
+    <clipPath id="swe-slice">
+      <path d="M9 38 L39 38 L39 15 C31 21 18 25.5 9 27.5 Z"/>
+    </clipPath>
+  </defs>
+  <ellipse cx="24" cy="42" rx="16" ry="2.5" fill="#402a18" opacity="0.10"/>
+  <ellipse cx="24" cy="39.5" rx="17" ry="3.4" fill="#dfe5ea"/>
+  <g clip-path="url(#swe-slice)">
+    <rect x="9" y="32" width="30" height="6" fill="url(#swe-sponge)"/>
+    <rect x="9" y="27.5" width="30" height="4.5" fill="url(#swe-cream)"/>
+    <rect x="9" y="21" width="30" height="6.5" fill="url(#swe-sponge)"/>
+    <rect x="9" y="13" width="30" height="8" fill="url(#swe-cream)"/>
+  </g>
+  <path d="M9 38 L39 38 L39 15 C31 21 18 25.5 9 27.5 Z" fill="none" stroke="#e3d3ae" stroke-width="1" opacity="0.6"/>
+  <path d="M39 15 C36 17 33.5 18.6 30.8 20 C32.5 16.8 35.8 14.8 39 15 Z" fill="#5da24f"/>
+  <path d="M31.5 20.5 C28.5 17.5 28.8 12.8 32 11 C34.8 9.5 38.5 11.5 38.6 15 C38.7 18.5 35 21.5 31.5 20.5 Z" fill="url(#swe-berry)"/>
+  <circle cx="32.8" cy="14.3" r="0.85" fill="#ffd9a8"/>
+  <circle cx="35.6" cy="16.8" r="0.85" fill="#ffd9a8"/>
+  <circle cx="31.6" cy="17.8" r="0.85" fill="#ffd9a8"/>
+  <ellipse cx="31.8" cy="12.8" rx="1.8" ry="1.1" fill="#ffffff" opacity="0.35"/>
+</svg>
