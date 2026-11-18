@@ -102,9 +102,41 @@ class CategoryIconTest(unittest.TestCase):
     def test_no_icon_without_category(self):
         p = self._sample("conbini")
         p["category"] = None
+        p["name"] = "ロングタオル　ブラック"  # 名前から推定できない商品
         self.assertNotIn("sh-cat-icon", appmod._product_card(p))
         p["category"] = "未登録カテゴリ"
+        p["name"] = "手巻おにぎり　鮭"  # カテゴリーがある商品は名前で推定しない
         self.assertNotIn("sh-cat-icon", appmod._product_card(p))
+
+    def test_guess_icon_from_name_when_no_category(self):
+        p = self._sample("conbini")
+        p["category"] = None
+        p["name"] = "手巻おにぎり　炭火焼紅しゃけ"
+        text = appmod._product_card(p)
+        self.assertIn("/static/icons/cat/onigiri.svg", text)
+        self.assertIn('alt="おにぎり"', text)
+        self.assertNotIn('<span class="ms-chip">おにぎり</span>', text)  # 推定はカテゴリー名として出さない
+
+    def test_guess_rules(self):
+        cases = [
+            ("手巻寿司　まぐろたたき巻", "conbini", "sushi"),
+            ("焼きさば御飯（もち麦）", "conbini", "bento"),
+            ("町中華の鉄鍋炒めチャーハン", "conbini", "bento"),
+            ("焼きそばパン　マヨネーズ入", "conbini", "bread"),
+            ("ボルドー産赤ワイン仕立てのデミソースハンバーグ弁当", "conbini", "bento"),
+            ("おにぎり浅草宿六監修　こだわり味噌の豚汁", "conbini", "soup"),
+            ("広島県産牡蠣のカキフライ3個（タルタルソース）", "sushi", "sozai"),
+            ("サラダ軍艦", "sushi", "sushi"),
+            ("炙り牛タン", "sushi", "sushi"),
+            ("横浜家系ラーメン", "sushi", "noodles"),
+        ]
+        for name, site, want in cases:
+            self.assertEqual(appmod.guess_icon(name, site), want, name)
+
+    def test_guess_labels_cover_all_slugs(self):
+        base = os.path.join(os.path.dirname(appmod.__file__), "static", "icons", "cat")
+        for slug in appmod.ICON_LABELS:
+            self.assertTrue(os.path.isfile(os.path.join(base, slug + ".svg")), slug)
 
     def test_mapped_icon_files_exist(self):
         slugs = {s for m in appmod.CATEGORY_ICONS.values() for s in m.values()} | {"cupnoodle"}

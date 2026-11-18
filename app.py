@@ -24,6 +24,8 @@ import re
 
 from flask import Flask, Response, abort
 
+from icon_guess import guess_icon
+
 # ---------- サイト名・基本設定 ----------
 SITE_NAME = "新発売ポチ"
 TAGLINE = "今日発売の新商品を、まとめてチェック"
@@ -334,13 +336,34 @@ CATEGORY_ICONS = {
 }
 
 
+# 推定したアイコンの代替テキスト（推定はアイコンにだけ使い、カテゴリー名としては出さない）
+ICON_LABELS = {
+    "onigiri": "おにぎり", "bento": "弁当・ごはん", "donburi": "丼・定食", "curry": "カレー", "sushi": "寿司",
+    "sandwich": "サンドイッチ", "burger": "ハンバーガー", "bread": "パン", "noodles": "麺", "pasta": "パスタ",
+    "cupnoodle": "カップ麺", "sozai": "惣菜・揚げ物", "salad": "サラダ", "soup": "スープ・グラタン",
+    "chukaman": "中華まん", "sweets": "スイーツ", "ice": "アイス", "snack": "お菓子", "drink": "ドリンク",
+    "alcohol": "お酒", "other": "その他",
+}
+# 元データにカテゴリーがないとき、商品名から推定してよいサイト（セブン・ローソン・回転寿司など）
+GUESS_SITES = ("conbini", "sushi")
+
+
 def _category_icon(p):
-    """商品のカテゴリアイコン (slug, ラベル) を返す。なければ None。カップ麺サイトは全商品が対象。"""
+    """商品のカテゴリアイコン (slug, ラベル) を返す。なければ None。カップ麺サイトは全商品が対象。
+
+    カテゴリーがあればそれで引く。カテゴリーがない商品だけ、商品名から推定する（icon_guess.py）。
+    """
     if p["site"] == "cupmen":
         return "cupnoodle", "カップ麺"
     cat = p.get("category")
-    slug = CATEGORY_ICONS.get(p["site"], {}).get(cat) if cat else None
-    return (slug, cat) if slug else None
+    if cat:
+        slug = CATEGORY_ICONS.get(p["site"], {}).get(cat)
+        return (slug, cat) if slug else None
+    if p["site"] in GUESS_SITES:
+        slug = guess_icon(p.get("name"), p["site"])
+        if slug:
+            return slug, ICON_LABELS[slug]
+    return None
 
 
 def _product_card(p, show_date=False, show_region=False):
