@@ -204,3 +204,33 @@ h2 {
 .sh-day > summary:hover h2 { color: var(--accent); }
 .sh-day > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .sh-day-link { margin: 8px 0 0; font-size: 0.85rem; text-align: right; }
+
+/* 2026-11-18 カードのカテゴリアイコン（ドット絵32px） */
+.sh-cat-icon { width: 48px; height: 48px; flex-shrink: 0; image-rendering: pixelated; margin-top: 2px; }
+/* ドット絵は元の32マスの倍数で出すと点がそろう。PC幅は2倍の64px、スマホは48px（高解像度画面で3倍前後） */
+@media (min-width: 700px) { .sh-cat-icon { width: 64px; height: 64px; } }
+
+/* 2026-11-18 カードを2段に組み替える。上段＝アイコン・商品名とバッジ・価格と詳細、下段＝説明文を全幅に。
+   アイコンや価格の下が空かないように、main/side の箱は display:contents で外してグリッドに直接並べる */
+.ms-card {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas: "head price" "head links" "desc desc";
+  column-gap: 12px; row-gap: 4px; align-items: start;
+}
+.ms-card:has(> .sh-cat-icon) {
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-areas: "icon head price" "icon head links" "desc desc desc";
+}
+.ms-card-main, .ms-card-side { display: contents; }
+.ms-card > .sh-cat-icon { grid-area: icon; margin-top: 0; }
+.ms-card .ms-card-head { grid-area: head; }
+.ms-card .sh-desc { grid-area: desc; margin: 4px 0 0; }
+.ms-card .ms-parking { grid-area: price; justify-self: end; margin: 0; }
+.ms-card .ms-card-links { grid-area: links; justify-self: end; margin: 0; flex-direction: column; align-items: flex-end; }
+/* スマホは価格列が幅を取って商品名が細く折れるので、価格と詳細ボタンを商品名の下の行に回す */
+@media (max-width: 699px) {
+  .ms-card { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "head head" "price links" "desc desc"; }
+  .ms-card:has(> .sh-cat-icon) { grid-template-columns: auto minmax(0, 1fr) auto; grid-template-areas: "icon head head" "icon price links" "desc desc desc"; }
+  .ms-card .ms-parking { justify-self: start; align-self: center; }
+  .ms-card .ms-card-links { flex-direction: row; align-items: center; align-self: center; }
+}

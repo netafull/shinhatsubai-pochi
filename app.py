@@ -303,6 +303,46 @@ def _region_label(text):
     return text[:12] + "…" if len(text) > 12 else text
 
 
+# カテゴリ名 -> アイコン（static/icons/cat/<slug>.svg）。サイトごとに同じ語の意味が違うため (site, category) で引く。
+# 未登録・カテゴリなしはアイコンを出さない（「その他」にはフォールバックしない）
+def _m(slug, *cats):
+    return {c: slug for c in cats}
+
+
+CATEGORY_ICONS = {
+    "conbini": {
+        **_m("onigiri", "おにぎり", "おむすび"), **_m("bento", "お弁当"), **_m("sushi", "お寿司"),
+        **_m("sandwich", "サンド", "サンドイッチ・ロールパン・バーガー"), **_m("bread", "パン"),
+        **_m("noodles", "そば・うどん・中華めん", "麺"), **_m("pasta", "パスタ"),
+        **_m("sozai", "チルド惣菜", "ホットスナック・惣菜"), **_m("salad", "サラダ"),
+        **_m("soup", "スープ・グラタン・お好み焼き"), **_m("chukaman", "中華まん"),
+        **_m("sweets", "デザート", "スイーツ", "和菓子"), **_m("ice", "アイス", "アイスクリーム"),
+        **_m("snack", "お菓子"), **_m("drink", "飲料", "コーヒー・フラッペ"), **_m("alcohol", "お酒"),
+    },
+    "fastfood": {
+        **_m("burger", "バーガー", "ハンバーガー"), **_m("sozai", "サイド", "おかず", "惣菜"),
+        **_m("sweets", "デザート・シェイク", "デザート", "スイーツ＆ドリンク"),
+        **_m("drink", "ドリンク", "ドリンク／スープ"), **_m("curry", "カレー"),
+        **_m("donburi", "丼", "牛丼", "こだわり丼", "吉野家の丼", "定食", "盛合せ",
+             "ヘビー級", "ライト級", "豚焼肉"),
+    },
+    "cafe": {
+        **_m("drink", "ビバレッジ", "ドリンク"), **_m("bread", "フード"),
+        **_m("sweets", "デザート", "スナック"),
+    },
+    "sushi": {**_m("sushi", "にぎり", "にぎり一貫", "ぐんかん・細巻"), **_m("sweets", "デザート")},
+}
+
+
+def _category_icon(p):
+    """商品のカテゴリアイコン (slug, ラベル) を返す。なければ None。カップ麺サイトは全商品が対象。"""
+    if p["site"] == "cupmen":
+        return "cupnoodle", "カップ麺"
+    cat = p.get("category")
+    slug = CATEGORY_ICONS.get(p["site"], {}).get(cat) if cat else None
+    return (slug, cat) if slug else None
+
+
 def _product_card(p, show_date=False, show_region=False):
     """商品カード。左に名前と説明、右に価格と詳細ボタンの横並び行レイアウト。"""
     e = html.escape
@@ -311,7 +351,12 @@ def _product_card(p, show_date=False, show_region=False):
         badges += '<span class="ms-chip">%s</span>' % e(p["category"])
     if show_date:
         badges += '<span class="ms-chip">%s発売</span>' % e(_fmt_date(p["launch_date"], with_year=False))
-    out = '<li class="ms-card"><div class="ms-card-main">'
+    out = '<li class="ms-card">'
+    icon = _category_icon(p)
+    if icon:
+        out += ('<img class="sh-cat-icon" src="/static/icons/cat/%s.svg" width="32" height="32" alt="%s" '
+                'loading="lazy" decoding="async">' % (icon[0], e(icon[1], True)))
+    out += '<div class="ms-card-main">'
     region = ""
     if show_region and p.get("region_text"):
         region = ' <span class="region">%s</span>' % e(_region_label(p["region_text"]))

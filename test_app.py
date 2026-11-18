@@ -82,6 +82,37 @@ def _product(**kw):
     return base
 
 
+class CategoryIconTest(unittest.TestCase):
+    def _sample(self, site):
+        return dict(next(p for p in appmod.STORE.products if p["site"] == site))
+
+    def test_conbini_onigiri_icon(self):
+        p = self._sample("conbini")
+        p["category"] = "おにぎり"
+        text = appmod._product_card(p)
+        self.assertIn("/static/icons/cat/onigiri.svg", text)
+        self.assertIn('class="sh-cat-icon"', text)
+        self.assertTrue(text.startswith('<li class="ms-card"><img class="sh-cat-icon"'))
+
+    def test_cupmen_icon_regardless_of_category(self):
+        p = self._sample("cupmen")
+        p["category"] = None
+        self.assertIn("/static/icons/cat/cupnoodle.svg", appmod._product_card(p))
+
+    def test_no_icon_without_category(self):
+        p = self._sample("conbini")
+        p["category"] = None
+        self.assertNotIn("sh-cat-icon", appmod._product_card(p))
+        p["category"] = "未登録カテゴリ"
+        self.assertNotIn("sh-cat-icon", appmod._product_card(p))
+
+    def test_mapped_icon_files_exist(self):
+        slugs = {s for m in appmod.CATEGORY_ICONS.values() for s in m.values()} | {"cupnoodle"}
+        base = os.path.join(os.path.dirname(appmod.__file__), "static", "icons", "cat")
+        for slug in slugs:
+            self.assertTrue(os.path.isfile(os.path.join(base, slug + ".svg")), slug)
+
+
 class FloatPriceTest(unittest.TestCase):
     def test_float_price_kept_and_rendered(self):
         p, reason = appmod.ProductStore._validate(_product())
