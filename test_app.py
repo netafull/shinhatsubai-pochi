@@ -129,6 +129,16 @@ class CategoryIconTest(unittest.TestCase):
             ("サラダ軍艦", "sushi", "sushi"),
             ("炙り牛タン", "sushi", "sushi"),
             ("横浜家系ラーメン", "sushi", "noodles"),
+            ("森永製菓　パキパリおっとっと　サワークリームオニオン味", "conbini", "snack"),
+            ("純米酒 晴雲", "sushi", "alcohol"),
+            ("松茸あんかけ茶碗蒸し", "sushi", "soup"),
+            ("えびブロッコリーサラダ", "sushi", "salad"),
+            ("サラダ軍艦", "sushi", "sushi"),
+            ("紫キャベツの酢漬け", "sushi", "salad"),
+            ("辛ラーメン専用 追いシャリ", "sushi", "sushi"),
+            ("つぶあんぱん", "conbini", "bread"),
+            ("ロールキャベツ", "conbini", "sozai"),
+            ("蜜芋オレ ～種子島産安納芋使用～", "cafe", "drink"),
         ]
         for name, site, want in cases:
             self.assertEqual(appmod.guess_icon(name, site), want, name)
