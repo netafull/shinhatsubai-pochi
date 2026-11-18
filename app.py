@@ -352,8 +352,11 @@ def _grouped_by_date(products, show_date=False):
     out = ""
     for date_str in sorted(by_date, reverse=True):
         items = by_date[date_str]
-        out += ('<section><h2><a href="/date/%s/">%s発売</a><small class="sh-count">%d件</small></h2>%s</section>\n'
-                % (date_str, e(_fmt_date(date_str)), len(items), _cards(items, show_date)))
+        # 日付見出しをタップで折りたためるよう details/summary にする（初期は開く）。
+        # 見出しをリンクにすると折りたたみと衝突するので、日付ページへのリンクは一覧の下に置く
+        out += ('<section><details class="sh-day" open><summary><h2>%s発売<small class="sh-count">%d件</small></h2></summary>'
+                '%s<p class="sh-day-link"><a href="/date/%s/">この日の新商品をすべて見る</a></p></details></section>\n'
+                % (e(_fmt_date(date_str)), len(items), _cards(items, show_date), date_str))
     return out
 
 
