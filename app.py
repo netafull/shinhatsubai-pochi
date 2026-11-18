@@ -388,20 +388,19 @@ def index():
     content = ('<section class="hero"><p class="intro">コンビニ・ファストフード・カップ麺・カフェ・'
                '回転寿司の新商品を発売日ごとにまとめています。今日（%s）は%d件の新商品が発売です。%s</p></section>\n'
                % (e(_fmt_date(ref_str)), len(STORE.on(ref_str)), e(CAUTION)))
-    content += '<section><h2>ジャンルから探す</h2>%s</section>\n' % _genre_links()
-
     def dstr(delta):
         return (ref + datetime.timedelta(days=delta)).isoformat()
 
-    # 近日発売（基準日より後、30日以内）。データの性質上ほぼ空だが、出る場合はここに出す
-    upcoming = [p for p in STORE.products if ref_str < p["launch_date"] <= dstr(30)]
-    if upcoming:
-        content += '<section><h2>近日発売</h2></section>\n' + _grouped_by_date(upcoming)
-
+    # 今日発売をいちばん上に置く（サイトの主目的。近日発売が多い日に埋もれないように）
     today = STORE.on(ref_str)
     content += '<section><h2>今日発売（%s）<small class="sh-count">%d件</small></h2>' % (e(_fmt_date(ref_str)), len(today))
     content += _cards(today) if today else '<p class="intro">今日発売の新商品は記録されていません。</p>'
     content += '</section>\n'
+
+    # 近日発売（基準日より後、30日以内）
+    upcoming = [p for p in STORE.products if ref_str < p["launch_date"] <= dstr(30)]
+    if upcoming:
+        content += '<section><h2>近日発売</h2></section>\n' + _grouped_by_date(upcoming)
 
     this_week = [p for p in STORE.products if dstr(-6) <= p["launch_date"] < ref_str]
     content += '<section><h2>今週発売</h2></section>\n'
@@ -410,6 +409,7 @@ def index():
     last_week = [p for p in STORE.products if dstr(-13) <= p["launch_date"] < dstr(-6)]
     content += '<section><h2>先週発売（まだ買える新商品）</h2></section>\n'
     content += _grouped_by_date(last_week) if last_week else '<p class="intro">先週発売の新商品は記録されていません。</p>\n'
+    content += '<section><h2>ジャンルから探す</h2>%s</section>\n' % _genre_links()
 
     # サブドメインは WebSite 構造化データが無いと検索結果のサイト名が親（ネタフル）になる（コンビニポチで実例）
     website = _jsonld({"@context": "https://schema.org", "@type": "WebSite",
