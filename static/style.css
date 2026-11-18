@@ -183,3 +183,11 @@ h2 {
 
 /* 販売地域ラベル（同名・同発売日で地域違いの商品の見分け用） */
 .region { margin-left: 6px; font-size: 0.8rem; font-weight: 400; color: var(--muted); }
+
+/* 2列のとき左右の商品が続いて見えないよう、商品ごとに枠を付けて列のあいだを空ける（2026-11-18） */
+.ms-cards { gap: 10px; }
+@media (min-width: 700px) { .ms-cards { gap: 12px 16px; } }
+.ms-card {
+  background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+  padding: 12px 14px;
+}
