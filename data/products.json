@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-19T09:57:24+09:00",
+ "generated_at": "2026-11-19T10:00:27+09:00",
  "note": "データ源は sources 配下の5リポジトリ（読み取りのみ）。取り込み時点のコミットは sources を参照。",
  "sources": {
   "conbini-pochi": {
