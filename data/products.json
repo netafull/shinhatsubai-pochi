@@ -1,38 +1,38 @@
 {
- "generated_at": "2026-11-18T10:00:25+09:00",
+ "generated_at": "2026-11-19T09:57:24+09:00",
  "note": "データ源は sources 配下の5リポジトリ（読み取りのみ）。取り込み時点のコミットは sources を参照。",
  "sources": {
   "conbini-pochi": {
-   "commit": "6cf73a0",
-   "date": "2026-11-18T08:49:48+09:00"
+   "commit": "5594c98",
+   "date": "2026-11-18T22:01:46Z"
   },
   "fastfood-pochi": {
-   "commit": "3880872",
-   "date": "2026-11-18T08:49:49+09:00"
+   "commit": "03aebb0",
+   "date": "2026-11-18T23:06:24Z"
   },
   "cupmen-pochi": {
-   "commit": "80cc331",
-   "date": "2026-11-18T00:00:59Z"
+   "commit": "68f35e2",
+   "date": "2026-11-19T00:08:50Z"
   },
   "cafe-pochi": {
-   "commit": "3e76a40",
-   "date": "2026-11-18T08:49:49+09:00"
+   "commit": "c77df67",
+   "date": "2026-11-18T23:01:29Z"
   },
   "sushi-pochi": {
-   "commit": "6aef66b",
-   "date": "2026-11-18T08:49:49+09:00"
+   "commit": "4bb04a6",
+   "date": "2026-11-18T23:39:04Z"
   }
  },
  "stats": {
   "conbini": {
    "site_name": "コンビニポチ",
-   "total": 1513,
-   "dated": 1454
+   "total": 1514,
+   "dated": 1455
   },
   "fastfood": {
    "site_name": "ファストフードポチ",
-   "total": 835,
-   "dated": 91
+   "total": 883,
+   "dated": 94
   },
   "cupmen": {
    "site_name": "カップ麺ポチ",
@@ -11172,6 +11172,26 @@
    "url": "https://fastfood.netaful.jp/items/yoshinoya-gentei-gyusanma-tei.html",
    "review_url": "https://netaful.jp/fast-food/0210715.html",
    "review_title": "【吉野家】「牛さんま定食」は美味しい？ 魚定食シリーズ第3弾、北海道産さんまを食べてみた"
+  },
+  {
+   "site": "fastfood",
+   "site_name": "ファストフードポチ",
+   "site_url": "https://fastfood.netaful.jp",
+   "chain": "hidakaya",
+   "chain_name": "日高屋",
+   "product_id": "20261009",
+   "name": "濃厚豚骨醤油ラーメン",
+   "category": "ラーメン",
+   "price": 690,
+   "price_max": null,
+   "price_tax": "incl",
+   "price_note": "税込。公式サイトの一覧に表示された価格。店舗により価格・取り扱いが異なる場合があります。",
+   "description": null,
+   "region_text": null,
+   "launch_date": "2026-10-09",
+   "url": "https://fastfood.netaful.jp/items/hidakaya-20261009.html",
+   "review_url": null,
+   "review_title": null
   },
   {
    "site": "fastfood",
@@ -25877,6 +25897,46 @@
    "site": "fastfood",
    "site_name": "ファストフードポチ",
    "site_url": "https://fastfood.netaful.jp",
+   "chain": "kourakuen",
+   "chain_name": "幸楽苑",
+   "product_id": "17215",
+   "name": "トムヤムクンらーめん",
+   "category": null,
+   "price": 890,
+   "price_max": null,
+   "price_tax": "incl",
+   "price_note": "税込。公式サイトの一覧に表示された価格。一部店舗では販売していません。",
+   "description": null,
+   "region_text": null,
+   "launch_date": "2026-11-04",
+   "url": "https://fastfood.netaful.jp/items/kourakuen-17215.html",
+   "review_url": null,
+   "review_title": null
+  },
+  {
+   "site": "fastfood",
+   "site_name": "ファストフードポチ",
+   "site_url": "https://fastfood.netaful.jp",
+   "chain": "kourakuen",
+   "chain_name": "幸楽苑",
+   "product_id": "15726",
+   "name": "メガたんめん",
+   "category": null,
+   "price": 990,
+   "price_max": null,
+   "price_tax": "incl",
+   "price_note": "税込。公式サイトの一覧に表示された価格。一部店舗では販売していません。味噌味、塩味からお選び頂けます。",
+   "description": null,
+   "region_text": null,
+   "launch_date": "2026-11-04",
+   "url": "https://fastfood.netaful.jp/items/kourakuen-15726.html",
+   "review_url": null,
+   "review_title": null
+  },
+  {
+   "site": "fastfood",
+   "site_name": "ファストフードポチ",
+   "site_url": "https://fastfood.netaful.jp",
    "chain": "mcdonalds",
    "chain_name": "マクドナルド",
    "product_id": "1920",
@@ -33470,6 +33530,26 @@
    "region_text": "茨城県",
    "launch_date": "2026-11-24",
    "url": "https://conbini.netaful.jp/items/seven-042067.html",
+   "review_url": null,
+   "review_title": null
+  },
+  {
+   "site": "conbini",
+   "site_name": "コンビニポチ",
+   "site_url": "https://conbini.netaful.jp",
+   "chain": "seven",
+   "chain_name": "セブンイレブン",
+   "product_id": "042495",
+   "name": "さつまいも御飯幕の内",
+   "category": null,
+   "price": 645.84,
+   "price_max": null,
+   "price_tax": "incl",
+   "price_note": null,
+   "description": "さつまいも御飯に、鶏むね肉の焼き鳥，煮物，かにかま入りかき揚げ，だし巻き玉子などを組み合わせた幕の内弁当です。",
+   "region_text": "北海道、東北、関東、山梨県、長野県、東海、近畿、鳥取県、島根県、岡山県、広島県、四国",
+   "launch_date": "2026-11-24",
+   "url": "https://conbini.netaful.jp/items/seven-042495.html",
    "review_url": null,
    "review_title": null
   },
