@@ -1,37 +1,37 @@
 {
- "generated_at": "2026-11-19T10:00:27+09:00",
+ "generated_at": "2026-11-20T10:00:24+09:00",
  "note": "データ源は sources 配下の5リポジトリ（読み取りのみ）。取り込み時点のコミットは sources を参照。",
  "sources": {
   "conbini-pochi": {
-   "commit": "5594c98",
-   "date": "2026-11-18T22:01:46Z"
+   "commit": "c63cd3f",
+   "date": "2026-11-19T22:01:16Z"
   },
   "fastfood-pochi": {
-   "commit": "03aebb0",
-   "date": "2026-11-18T23:06:24Z"
+   "commit": "95bd5d5",
+   "date": "2026-11-19T22:40:05Z"
   },
   "cupmen-pochi": {
-   "commit": "68f35e2",
-   "date": "2026-11-19T00:08:50Z"
+   "commit": "75732cf",
+   "date": "2026-11-20T00:00:50Z"
   },
   "cafe-pochi": {
-   "commit": "c77df67",
-   "date": "2026-11-18T23:01:29Z"
+   "commit": "4761f1d",
+   "date": "2026-11-19T23:02:00Z"
   },
   "sushi-pochi": {
-   "commit": "4bb04a6",
-   "date": "2026-11-18T23:39:04Z"
+   "commit": "bd1326b",
+   "date": "2026-11-19T23:31:05Z"
   }
  },
  "stats": {
   "conbini": {
    "site_name": "コンビニポチ",
-   "total": 1514,
-   "dated": 1455
+   "total": 1515,
+   "dated": 1456
   },
   "fastfood": {
    "site_name": "ファストフードポチ",
-   "total": 883,
+   "total": 922,
    "dated": 94
   },
   "cupmen": {
@@ -41,8 +41,8 @@
   },
   "cafe": {
    "site_name": "カフェポチ",
-   "total": 60,
-   "dated": 23
+   "total": 67,
+   "dated": 25
   },
   "sushi": {
    "site_name": "回転寿司ポチ",
@@ -6610,8 +6610,8 @@
    "region_text": null,
    "launch_date": "2026-09-29",
    "url": "https://conbini.netaful.jp/items/lawson-1532665.html",
-   "review_url": null,
-   "review_title": null
+   "review_url": "https://netaful.jp/lawson/0212929.html",
+   "review_title": "【ローソン】「盛りすぎ！ツナたまごサンド」ツナサラダ50%増量！実測164gでずっしり"
   },
   {
    "site": "conbini",
@@ -31910,8 +31910,8 @@
    "region_text": "※ナチュラルローソンではお取り扱いしておりません。",
    "launch_date": "2026-11-17",
    "url": "https://conbini.netaful.jp/items/lawson-1534280.html",
-   "review_url": null,
-   "review_title": null
+   "review_url": "https://netaful.jp/lawson/0212929.html",
+   "review_title": "【ローソン】「盛りすぎ！ツナたまごサンド」ツナサラダ50%増量！実測164gでずっしり"
   },
   {
    "site": "conbini",
@@ -32410,6 +32410,26 @@
    "region_text": "北海道、東北、関東、山梨県、長野県、東海、近畿、九州",
    "launch_date": "2026-11-17",
    "url": "https://conbini.netaful.jp/items/seven-042138.html",
+   "review_url": null,
+   "review_title": null
+  },
+  {
+   "site": "conbini",
+   "site_name": "コンビニポチ",
+   "site_url": "https://conbini.netaful.jp",
+   "chain": "seven",
+   "chain_name": "セブンイレブン",
+   "product_id": "054129",
+   "name": "チョコだらけサンド",
+   "category": null,
+   "price": 399.6,
+   "price_max": null,
+   "price_tax": "incl",
+   "price_note": null,
+   "description": "ココア食パン，チョコホイップ，チョコチップ，チョコソースを使用し、黒い見た目にこだわったチョコホイップサンドです。",
+   "region_text": "東北",
+   "launch_date": "2026-11-17",
+   "url": "https://conbini.netaful.jp/items/seven-054129.html",
    "review_url": null,
    "review_title": null
   },
@@ -33430,6 +33450,46 @@
    "region_text": "北海道、東北、関東、新潟県、北陸、東海、近畿、中国、九州、沖縄",
    "launch_date": "2026-11-19",
    "url": "https://conbini.netaful.jp/items/seven-106098.html",
+   "review_url": null,
+   "review_title": null
+  },
+  {
+   "site": "cafe",
+   "site_name": "カフェポチ",
+   "site_url": "https://cafe.netaful.jp",
+   "chain": "starbucks",
+   "chain_name": "スターバックス",
+   "product_id": "4524785657380",
+   "name": "ティラミス ラテ",
+   "category": "ビバレッジ",
+   "price": 630,
+   "price_max": null,
+   "price_tax": "incl",
+   "price_note": "公式サイトの新作一覧の表示(税込)。サイズや店内飲食・持ち帰りで異なります",
+   "description": null,
+   "region_text": null,
+   "launch_date": "2026-11-20",
+   "url": "https://cafe.netaful.jp/items/starbucks-4524785657380.html",
+   "review_url": null,
+   "review_title": null
+  },
+  {
+   "site": "cafe",
+   "site_name": "カフェポチ",
+   "site_url": "https://cafe.netaful.jp",
+   "chain": "starbucks",
+   "chain_name": "スターバックス",
+   "product_id": "4524785657373",
+   "name": "抹茶 ティラミス フラペチーノ®",
+   "category": "ビバレッジ",
+   "price": 720,
+   "price_max": null,
+   "price_tax": "incl",
+   "price_note": "公式サイトの新作一覧の表示(税込)。サイズや店内飲食・持ち帰りで異なります",
+   "description": null,
+   "region_text": null,
+   "launch_date": "2026-11-20",
+   "url": "https://cafe.netaful.jp/items/starbucks-4524785657373.html",
    "review_url": null,
    "review_title": null
   },
