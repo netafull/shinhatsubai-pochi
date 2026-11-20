@@ -48,7 +48,7 @@ def collect_routes(appmod):
             routes.append("/genre/%s/" % slug)
     for key in store.chains:
         routes.append("/chain/%s/" % key)
-    routes += ["/sitemap.xml", "/robots.txt"]
+    routes += ["/sitemap.xml", "/robots.txt", "/feed.json"]
     return routes
 
 
