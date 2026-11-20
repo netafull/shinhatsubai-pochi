@@ -36,7 +36,7 @@ SITE_URL = os.environ.get("SITE_URL", "https://shinhatsubai.netaful.jp").rstrip(
 GA4_ID = os.environ.get("GA4_ID", "")
 
 # 共通ページテンプレート・文言を最後に変えた日（sitemap.xml の lastmod の下限）
-PAGES_UPDATED = "2026-11-18"
+PAGES_UPDATED = "2026-11-20"
 
 # フッターの関連サイト（ポチシリーズ。新発売ポチ自身は載せない）
 SERIES_SITES = (
@@ -214,7 +214,9 @@ BASE_TEMPLATE = """<!DOCTYPE html>
 def _series_nav():
     links = "\n".join('<a href="%s">%s<span class="lbl"> %s</span></a>'
                       % (html.escape(u, quote=True), html.escape(n), html.escape(d)) for n, d, u in SERIES_SITES)
-    return '<nav class="sites"><span class="lbl">関連サイト</span>\n%s\n</nav>\n' % links
+    return ('<nav class="sites"><span class="lbl">関連サイト</span>\n%s\n</nav>\n' % links
+            + '<nav class="sites"><span class="lbl">ポチシリーズ一覧：</span>\n'
+            + '<a href="https://pochi.netaful.jp/">ポチフル</a>\n</nav>\n')
 
 
 def _site_head(is_top):
