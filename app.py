@@ -574,6 +574,43 @@ def sitemap():
                     mimetype="application/xml")
 
 
+FEED_DAYS = 3
+FEED_MAX = 50
+
+
+def build_feed(ref=None, generated=None):
+    """ポチフルのダッシュボード用 /feed.json（仕様 v1）。発売日が今日から3日前〜今日の商品を新しい順に最大50件。"""
+    ref = ref or reference_date()
+    oldest = (ref - datetime.timedelta(days=FEED_DAYS)).isoformat()
+    newest = ref.isoformat()
+    picked = [p for p in STORE.products if oldest <= p["launch_date"] <= newest]
+    picked.sort(key=lambda p: p["launch_date"], reverse=True)  # sort は安定なのでデータ順は保たれる
+    items = []
+    for p in picked[:FEED_MAX]:
+        ic = _category_icon(p)
+        items.append({
+            "id": "%s:%s-%s" % (p["site"], p["chain"], p["product_id"]),
+            "title": p["name"],
+            "url": p["url"],
+            "date": p["launch_date"],
+            "note": ("\u00a5{:,}".format(p["price"]) if p.get("price") is not None else None),
+            "image": None,
+            "image_link": None,
+            "source": p["site"],
+            "source_name": p["site_name"],
+            "icon": ("%s/static/icons/cat/%s.svg" % (SITE_URL, ic[0])) if ic else None,
+        })
+    if generated is None:
+        generated = datetime.datetime.now(JST).replace(microsecond=0).isoformat()
+    return {"version": 1, "site": "shinhatsubai", "site_name": SITE_NAME, "site_url": SITE_URL + "/",
+            "generated": generated, "items": items}
+
+
+@app.route("/feed.json")
+def feed():
+    return Response(json.dumps(build_feed(), ensure_ascii=False, indent=1), mimetype="application/json")
+
+
 @app.route("/robots.txt")
 def robots():
     return Response("User-agent: *\nAllow: /\nSitemap: %s/sitemap.xml\n" % SITE_URL, mimetype="text/plain")

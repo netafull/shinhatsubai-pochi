@@ -203,6 +203,35 @@ class RegionLabelTest(unittest.TestCase):
         self.assertEqual(out.count('class="region"'), 1)
 
 
+class FeedTest(unittest.TestCase):
+    def test_feed_shape_and_window(self):
+        ref = datetime.date(2026, 11, 18)
+        f = appmod.build_feed(ref, generated="2026-11-18T10:00:00+09:00")
+        self.assertEqual(f["version"], 1)
+        self.assertEqual(f["site"], "shinhatsubai")
+        self.assertGreater(len(f["items"]), 0)
+        self.assertLessEqual(len(f["items"]), 50)
+        dates = [i["date"] for i in f["items"]]
+        self.assertEqual(dates, sorted(dates, reverse=True))
+        self.assertTrue(all("2026-11-15" <= d <= "2026-11-18" for d in dates))
+        self.assertEqual(len({i["id"] for i in f["items"]}), len(f["items"]))
+        for i in f["items"]:
+            self.assertIn(i["source"], ("conbini", "fastfood", "cafe", "sushi", "cupmen"))
+            self.assertTrue(i["url"].startswith("https://"))
+            self.assertIsNone(i["image"])
+            if i["icon"]:
+                self.assertTrue(i["icon"].startswith("https://shinhatsubai.netaful.jp/static/icons/cat/"))
+
+    def test_future_excluded(self):
+        f = appmod.build_feed(datetime.date(2026, 1, 1))
+        self.assertTrue(all(i["date"] <= "2026-01-01" for i in f["items"]))
+
+    def test_route(self):
+        r = appmod.app.test_client().get("/feed.json")
+        self.assertEqual(r.status_code, 200)
+        self.assertEqual(r.get_json()["version"], 1)
+
+
 class ReferenceDateTest(unittest.TestCase):
     def test_default_is_jst_date(self):
         saved = os.environ.pop("REFERENCE_DATE", None)
