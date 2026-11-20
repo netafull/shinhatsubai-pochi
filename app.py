@@ -44,6 +44,7 @@ SERIES_SITES = (
     ("家電ポチ", "ガジェット・家電セール", "https://kaden.netaful.jp/"),
     ("林檎ポチ", "Apple整備済製品", "https://apple.netaful.jp/"),
     ("漫画ポチ", "Webマンガ横断検索", "https://manga.netaful.jp/"),
+    ("マンガ新刊ポチ", "コミック新刊の発売日をまとめて", "https://shinkan.netaful.jp/"),
     ("コンビニポチ", "コンビニ新商品アーカイブ", "https://conbini.netaful.jp/"),
     ("ファストフードポチ", "ファストフード限定メニュー", "https://fastfood.netaful.jp/"),
     ("カフェポチ", "カフェ季節限定メニュー", "https://cafe.netaful.jp/"),
