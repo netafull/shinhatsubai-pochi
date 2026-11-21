@@ -161,7 +161,7 @@ class FloatPriceTest(unittest.TestCase):
         self.assertIsNone(reason)
         self.assertEqual(p["price"], 213.84)
         html_text = appmod._price_html(p)
-        self.assertIn("213.84円", html_text)
+        self.assertIn("213円", html_text)  # 表示は切り捨て（データは 213.84 のまま）
         self.assertIn("（税込）", html_text)
 
     def test_integral_float_becomes_int_with_separator(self):
@@ -267,3 +267,10 @@ class Ga4Test(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class PriceFormatTest(unittest.TestCase):
+    def test_decimal_floored(self):
+        self.assertEqual(appmod._fmt_price(494.64), "494")
+        self.assertEqual(appmod._fmt_price(1234), "1,234")
+        self.assertEqual(appmod._fmt_price(1234.9), "1,234")

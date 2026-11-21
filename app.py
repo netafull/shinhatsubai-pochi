@@ -274,10 +274,8 @@ def _fmt_date(date_str, with_year=True):
 
 
 def _fmt_price(v):
-    """整数値は 1,234、小数を含む値は元サイトと同じ :g 形式（213.84）。"""
-    if isinstance(v, int):
-        return format(v, ",")
-    return format(v, "g")
+    """1,234 形式。小数（コンビニの税込 494.64 など）は切り捨てて整数にする（オーナー指示 2026-11-21）。"""
+    return format(int(v), ",")
 
 
 def _price_html(p):
@@ -593,7 +591,7 @@ def build_feed(ref=None, generated=None):
             "title": p["name"],
             "url": p["url"],
             "date": p["launch_date"],
-            "note": ("\u00a5{:,}".format(p["price"]) if p.get("price") is not None else None),
+            "note": ("\u00a5" + _fmt_price(p["price"]) if p.get("price") is not None else None),
             "brand": p.get("chain_name") or None,  # チェーン名（ポチフルで価格の前に出す）
             "image": None,
             "image_link": None,
