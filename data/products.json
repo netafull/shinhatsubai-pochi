@@ -1,10 +1,10 @@
 {
- "generated_at": "2026-11-21T22:40:33+09:00",
+ "generated_at": "2026-11-21T23:38:02+09:00",
  "note": "データ源は sources 配下の5リポジトリ（読み取りのみ）。取り込み時点のコミットは sources を参照。",
  "sources": {
   "conbini-pochi": {
-   "commit": "a63aa62",
-   "date": "2026-11-20T22:06:22Z"
+   "commit": "33b80ce",
+   "date": "2026-11-21T14:37:20Z"
   },
   "fastfood-pochi": {
    "commit": "3020098",
