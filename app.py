@@ -594,6 +594,7 @@ def build_feed(ref=None, generated=None):
             "url": p["url"],
             "date": p["launch_date"],
             "note": ("\u00a5{:,}".format(p["price"]) if p.get("price") is not None else None),
+            "brand": p.get("chain_name") or None,  # チェーン名（ポチフルで価格の前に出す）
             "image": None,
             "image_link": None,
             "source": p["site"],

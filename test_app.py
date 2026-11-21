@@ -219,6 +219,7 @@ class FeedTest(unittest.TestCase):
             self.assertIn(i["source"], ("conbini", "fastfood", "cafe", "sushi", "cupmen"))
             self.assertTrue(i["url"].startswith("https://"))
             self.assertIsNone(i["image"])
+            self.assertTrue(i["brand"])  # チェーン名（例「スターバックス」）
             if i["icon"]:
                 self.assertTrue(i["icon"].startswith("https://shinhatsubai.netaful.jp/static/icons/cat/"))
 
