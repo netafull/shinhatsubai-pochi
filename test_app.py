@@ -274,3 +274,13 @@ class PriceFormatTest(unittest.TestCase):
         self.assertEqual(appmod._fmt_price(494.64), "494")
         self.assertEqual(appmod._fmt_price(1234), "1,234")
         self.assertEqual(appmod._fmt_price(1234.9), "1,234")
+
+
+class GroupedOrderTest(unittest.TestCase):
+    def test_upcoming_ascending_and_default_descending(self):
+        ps = [_product(product_id=str(i), launch_date=d) for i, d in enumerate(["2026-11-30", "2026-11-23", "2026-11-25"])]
+        asc = appmod._grouped_by_date(ps, ascending=True)
+        self.assertLess(asc.index("/date/2026-11-23/"), asc.index("/date/2026-11-25/"))
+        self.assertLess(asc.index("/date/2026-11-25/"), asc.index("/date/2026-11-30/"))
+        desc = appmod._grouped_by_date(ps)
+        self.assertLess(desc.index("/date/2026-11-30/"), desc.index("/date/2026-11-23/"))
