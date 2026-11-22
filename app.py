@@ -412,14 +412,14 @@ def _cards(products, show_date=False):
         for p in products)
 
 
-def _grouped_by_date(products, show_date=False):
-    """発売日の新しい順に、日付見出し＋カード群を並べる。"""
+def _grouped_by_date(products, show_date=False, ascending=False):
+    """発売日の新しい順（ascending=True なら近い順）に、日付見出し＋カード群を並べる。"""
     e = html.escape
     by_date = {}
     for p in products:
         by_date.setdefault(p["launch_date"], []).append(p)
     out = ""
-    for date_str in sorted(by_date, reverse=True):
+    for date_str in sorted(by_date, reverse=not ascending):
         items = by_date[date_str]
         # 日付見出しをタップで折りたためるよう details/summary にする（初期は開く）。
         # 見出しをリンクにすると折りたたみと衝突するので、日付ページへのリンクは一覧の下に置く
@@ -474,7 +474,7 @@ def index():
     # 近日発売（基準日より後、30日以内）
     upcoming = [p for p in STORE.products if ref_str < p["launch_date"] <= dstr(30)]
     if upcoming:
-        content += '<section><h2>近日発売</h2></section>\n' + _grouped_by_date(upcoming)
+        content += '<section><h2>近日発売</h2></section>\n' + _grouped_by_date(upcoming, ascending=True)  # 近い日から（オーナー意向 2026-11-22）
 
     this_week = [p for p in STORE.products if dstr(-6) <= p["launch_date"] < ref_str]
     content += '<section><h2>今週発売</h2></section>\n'
