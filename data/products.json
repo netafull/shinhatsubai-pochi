@@ -1,26 +1,26 @@
 {
- "generated_at": "2026-11-22T21:20:57+09:00",
+ "generated_at": "2026-11-22T23:02:34+09:00",
  "note": "データ源は sources 配下の5リポジトリ（読み取りのみ）。取り込み時点のコミットは sources を参照。",
  "sources": {
   "conbini-pochi": {
-   "commit": "176e6d5",
-   "date": "2026-11-21T22:01:07Z"
+   "commit": "9a00e23",
+   "date": "2026-11-22T23:01:16+09:00"
   },
   "fastfood-pochi": {
-   "commit": "82f0f18",
-   "date": "2026-11-21T22:39:55Z"
+   "commit": "515c52f",
+   "date": "2026-11-22T23:01:22+09:00"
   },
   "cupmen-pochi": {
-   "commit": "2a3973a",
-   "date": "2026-11-22T00:00:45Z"
+   "commit": "1b99dd0",
+   "date": "2026-11-22T23:01:40+09:00"
   },
   "cafe-pochi": {
-   "commit": "f48997f",
-   "date": "2026-11-21T23:01:57Z"
+   "commit": "a1037bd",
+   "date": "2026-11-22T23:01:28+09:00"
   },
   "sushi-pochi": {
-   "commit": "cc2de84",
-   "date": "2026-11-21T23:30:57Z"
+   "commit": "bf26659",
+   "date": "2026-11-22T23:01:34+09:00"
   }
  },
  "stats": {
@@ -31,7 +31,7 @@
   },
   "fastfood": {
    "site_name": "ファストフードポチ",
-   "total": 966,
+   "total": 970,
    "dated": 94
   },
   "cupmen": {
@@ -41,8 +41,8 @@
   },
   "cafe": {
    "site_name": "カフェポチ",
-   "total": 67,
-   "dated": 25
+   "total": 77,
+   "dated": 27
   },
   "sushi": {
    "site_name": "回転寿司ポチ",
@@ -26654,6 +26654,46 @@
    "review_title": null
   },
   {
+   "site": "cafe",
+   "site_name": "カフェポチ",
+   "site_url": "https://cafe.netaful.jp",
+   "chain": "tullys",
+   "chain_name": "タリーズ",
+   "product_id": "food-pastry-26_cinnamonroll",
+   "name": "シナモンロール",
+   "category": "フード",
+   "price": 370,
+   "price_max": null,
+   "price_tax": "incl",
+   "price_note": "税込。店内飲食・テイクアウトは同一価格(公式の表記)。店舗により異なる場合があります",
+   "description": null,
+   "region_text": null,
+   "launch_date": "2026-11-06",
+   "url": "https://cafe.netaful.jp/items/tullys-food-pastry-26_cinnamonroll.html",
+   "review_url": null,
+   "review_title": null
+  },
+  {
+   "site": "cafe",
+   "site_name": "カフェポチ",
+   "site_url": "https://cafe.netaful.jp",
+   "chain": "tullys",
+   "chain_name": "タリーズ",
+   "product_id": "drink-coffee-26h_dubai_chocolate_latte",
+   "name": "タリーズドバイチョコレートラテ",
+   "category": "ドリンク",
+   "price": 700,
+   "price_max": null,
+   "price_tax": "incl",
+   "price_note": "税込。店内飲食・テイクアウトは同一価格(公式の表記)。店舗により異なる場合があります",
+   "description": null,
+   "region_text": null,
+   "launch_date": "2026-11-06",
+   "url": "https://cafe.netaful.jp/items/tullys-drink-coffee-26h_dubai_chocolate_latte.html",
+   "review_url": null,
+   "review_title": null
+  },
+  {
    "site": "sushi",
    "site_name": "回転寿司ポチ",
    "site_url": "https://sushi.netaful.jp",
@@ -30470,8 +30510,8 @@
    "region_text": "※ナチュラルローソンではお取り扱いしておりません。※一部地域では商品仕様と栄養成分が異なります。",
    "launch_date": "2026-11-16",
    "url": "https://conbini.netaful.jp/items/lawson-1534253.html",
-   "review_url": null,
-   "review_title": null
+   "review_url": "https://netaful.jp/lawson/0213127.html",
+   "review_title": "【ローソン】「盛りすぎ！塩焼そば」麺重量50%増量！総重量600gオーバーのボリュームがすごい"
   },
   {
    "site": "cupmen",
