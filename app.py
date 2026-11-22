@@ -36,7 +36,7 @@ SITE_URL = os.environ.get("SITE_URL", "https://shinhatsubai.netaful.jp").rstrip(
 GA4_ID = os.environ.get("GA4_ID", "")
 
 # 共通ページテンプレート・文言を最後に変えた日（sitemap.xml の lastmod の下限）
-PAGES_UPDATED = "2026-11-20"
+PAGES_UPDATED = "2026-11-22"
 
 # フッターの関連サイト（ポチシリーズ。新発売ポチ自身は載せない）
 SERIES_SITES = (
@@ -205,7 +205,8 @@ BASE_TEMPLATE = """<!DOCTYPE html>
 <footer class="site-footer">
 <p>{{SITE_NAME}}は、コンビニポチ・ファストフードポチ・カップ麺ポチ・カフェポチ・回転寿司ポチが記録している新商品の情報を、発売日で横断してまとめています。商品の詳細（栄養成分など）は各商品のリンク先（元のポチ）でご確認ください。</p>
 <p>当サイトは各チェーン・各社とは関係のない非公式サイトです。価格・発売日は、元のポチが公式の案内を確認した時点のものです。最新の情報は各チェーンの公式サイトでご確認ください。</p>
-<p><a href="/">トップ</a> ｜ <a href="https://netaful.jp/policy.html">メディアポリシー</a></p>
+<p>当サイトはアクセス解析（Googleアナリティクス）を使っています。Cookieを使うことがあります。</p>
+<p><a href="/">トップ</a></p>
 {{SERIES_NAV}}</footer>
 </body>
 </html>
