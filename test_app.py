@@ -167,8 +167,9 @@ class CategoryIconTest(unittest.TestCase):
         p["category"] = None
         p["name"] = "ニラともやしのシャキシャキ焼き"
         self.assertIsNone(appmod._category_icon(p))  # 決まらないものは出さない
-        p["name"] = "蜜いものパルフェ"  # 「パルフェ」は icon_guess.py の規則に無い（正本の変更は別件）。決まらないので出さない
-        self.assertIsNone(appmod._category_icon(p))
+        for name in ("蜜いものパルフェ", "蜜いものザ・サンデー～紅天使使用"):  # 2026-11-23 規則に追加（オーナー判断）
+            p["name"] = name
+            self.assertEqual(appmod._category_icon(p)[0], "sweets", name)
 
     def test_famires_in_feed(self):
         f = appmod.build_feed(datetime.date(2026, 10, 28), generated="2026-10-28T10:00:00+09:00")
