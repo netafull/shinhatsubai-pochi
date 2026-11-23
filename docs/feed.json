@@ -3,8 +3,86 @@
  "site": "shinhatsubai",
  "site_name": "新発売ポチ",
  "site_url": "https://shinhatsubai.netaful.jp/",
- "generated": "2026-11-22T23:02:34+09:00",
+ "generated": "2026-11-23T10:00:25+09:00",
  "items": [
+  {
+   "id": "conbini:familymart-0730204",
+   "title": "香ばし炒めの黄金玉子炒飯",
+   "url": "https://conbini.netaful.jp/items/familymart-0730204.html",
+   "date": "2026-11-23",
+   "note": "¥598",
+   "brand": "ファミリーマート",
+   "image": null,
+   "image_link": null,
+   "source": "conbini",
+   "source_name": "コンビニポチ",
+   "icon": "https://shinhatsubai.netaful.jp/static/icons/cat/bento.svg"
+  },
+  {
+   "id": "conbini:lawson-1534482",
+   "title": "盛りすぎ！1日分の野菜ちゃんぽん",
+   "url": "https://conbini.netaful.jp/items/lawson-1534482.html",
+   "date": "2026-11-23",
+   "note": "¥599",
+   "brand": "ローソン",
+   "image": null,
+   "image_link": null,
+   "source": "conbini",
+   "source_name": "コンビニポチ",
+   "icon": "https://shinhatsubai.netaful.jp/static/icons/cat/noodles.svg"
+  },
+  {
+   "id": "conbini:lawson-1534481",
+   "title": "盛りすぎ！ソース焼そば",
+   "url": "https://conbini.netaful.jp/items/lawson-1534481.html",
+   "date": "2026-11-23",
+   "note": "¥559",
+   "brand": "ローソン",
+   "image": null,
+   "image_link": null,
+   "source": "conbini",
+   "source_name": "コンビニポチ",
+   "icon": "https://shinhatsubai.netaful.jp/static/icons/cat/noodles.svg"
+  },
+  {
+   "id": "conbini:lawson-1534542",
+   "title": "盛りすぎ！バスチー‐バスク風チーズケーキ‐",
+   "url": "https://conbini.netaful.jp/items/lawson-1534542.html",
+   "date": "2026-11-23",
+   "note": "¥324",
+   "brand": "ローソン",
+   "image": null,
+   "image_link": null,
+   "source": "conbini",
+   "source_name": "コンビニポチ",
+   "icon": "https://shinhatsubai.netaful.jp/static/icons/cat/sweets.svg"
+  },
+  {
+   "id": "cupmen:myojo-14051",
+   "title": "明星 麺神カップ 札幌風ブラック醤油ラーメン",
+   "url": "https://cupmen.netaful.jp/items/myojo-14051.html",
+   "date": "2026-11-23",
+   "note": "¥300",
+   "brand": "明星食品",
+   "image": null,
+   "image_link": null,
+   "source": "cupmen",
+   "source_name": "カップ麺ポチ",
+   "icon": "https://shinhatsubai.netaful.jp/static/icons/cat/cupnoodle.svg"
+  },
+  {
+   "id": "cupmen:nissin-13998",
+   "title": "日清マ王 大魔王味噌",
+   "url": "https://cupmen.netaful.jp/items/nissin-13998.html",
+   "date": "2026-11-23",
+   "note": "¥368",
+   "brand": "日清食品",
+   "image": null,
+   "image_link": null,
+   "source": "cupmen",
+   "source_name": "カップ麺ポチ",
+   "icon": "https://shinhatsubai.netaful.jp/static/icons/cat/cupnoodle.svg"
+  },
   {
    "id": "cafe:starbucks-4524785657380",
    "title": "ティラミス ラテ",
@@ -43,19 +121,6 @@
    "source": "sushi",
    "source_name": "回転寿司ポチ",
    "icon": "https://shinhatsubai.netaful.jp/static/icons/cat/sushi.svg"
-  },
-  {
-   "id": "conbini:seven-106098",
-   "title": "手包みロールキャベツ入りポトフ",
-   "url": "https://conbini.netaful.jp/items/seven-106098.html",
-   "date": "2026-11-19",
-   "note": "¥494",
-   "brand": "セブンイレブン",
-   "image": null,
-   "image_link": null,
-   "source": "conbini",
-   "source_name": "コンビニポチ",
-   "icon": "https://shinhatsubai.netaful.jp/static/icons/cat/soup.svg"
   }
  ]
 }

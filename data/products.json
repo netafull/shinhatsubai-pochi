@@ -1,33 +1,33 @@
 {
- "generated_at": "2026-11-22T23:02:34+09:00",
+ "generated_at": "2026-11-23T10:00:24+09:00",
  "note": "データ源は sources 配下の5リポジトリ（読み取りのみ）。取り込み時点のコミットは sources を参照。",
  "sources": {
   "conbini-pochi": {
-   "commit": "9a00e23",
-   "date": "2026-11-22T23:01:16+09:00"
+   "commit": "bbb06ac",
+   "date": "2026-11-22T22:02:00Z"
   },
   "fastfood-pochi": {
-   "commit": "515c52f",
-   "date": "2026-11-22T23:01:22+09:00"
+   "commit": "64f54fe",
+   "date": "2026-11-22T22:38:14Z"
   },
   "cupmen-pochi": {
-   "commit": "1b99dd0",
-   "date": "2026-11-22T23:01:40+09:00"
+   "commit": "2d3a8f4",
+   "date": "2026-11-23T00:00:52Z"
   },
   "cafe-pochi": {
-   "commit": "a1037bd",
-   "date": "2026-11-22T23:01:28+09:00"
+   "commit": "3e06822",
+   "date": "2026-11-22T23:01:46Z"
   },
   "sushi-pochi": {
-   "commit": "bf26659",
-   "date": "2026-11-22T23:01:34+09:00"
+   "commit": "b6b83c1",
+   "date": "2026-11-22T23:30:59Z"
   }
  },
  "stats": {
   "conbini": {
    "site_name": "コンビニポチ",
-   "total": 1607,
-   "dated": 1546
+   "total": 1610,
+   "dated": 1549
   },
   "fastfood": {
    "site_name": "ファストフードポチ",
@@ -36,8 +36,8 @@
   },
   "cupmen": {
    "site_name": "カップ麺ポチ",
-   "total": 59,
-   "dated": 49
+   "total": 60,
+   "dated": 50
   },
   "cafe": {
    "site_name": "カフェポチ",
@@ -33119,6 +33119,66 @@
    "site_url": "https://conbini.netaful.jp",
    "chain": "seven",
    "chain_name": "セブンイレブン",
+   "product_id": "042152",
+   "name": "手巻寿司　海鮮サラダ巻",
+   "category": null,
+   "price": 257.04,
+   "price_max": null,
+   "price_tax": "incl",
+   "price_note": null,
+   "description": "食感と旨味を楽しめるように細かく刻んだかに風味かまぼこ、イカ、貝をマヨネーズで和えた具を手巻寿司にしました。",
+   "region_text": "新潟県、北陸",
+   "launch_date": "2026-11-17",
+   "url": "https://conbini.netaful.jp/items/seven-042152.html",
+   "review_url": null,
+   "review_title": null
+  },
+  {
+   "site": "conbini",
+   "site_name": "コンビニポチ",
+   "site_url": "https://conbini.netaful.jp",
+   "chain": "seven",
+   "chain_name": "セブンイレブン",
+   "product_id": "044982",
+   "name": "炭火焼き豚ロースのバーべキュー弁当（麦飯）",
+   "category": null,
+   "price": 594,
+   "price_max": null,
+   "price_tax": "incl",
+   "price_note": null,
+   "description": "炭火焼きにした豚ロースを甘辛いタレで食べ進みよく仕立てた、ボリューム感のある弁当です。",
+   "region_text": "千葉県、東京都、神奈川県、岐阜県、愛知県、三重県",
+   "launch_date": "2026-11-17",
+   "url": "https://conbini.netaful.jp/items/seven-044982.html",
+   "review_url": null,
+   "review_title": null
+  },
+  {
+   "site": "conbini",
+   "site_name": "コンビニポチ",
+   "site_url": "https://conbini.netaful.jp",
+   "chain": "seven",
+   "chain_name": "セブンイレブン",
+   "product_id": "041527",
+   "name": "豚焼肉唐辛子マヨネーズ巻５巻",
+   "category": null,
+   "price": 473.04,
+   "price_max": null,
+   "price_tax": "incl",
+   "price_note": null,
+   "description": "甘く濃いタレで炒めた豚肉を唐辛子マヨネーズと一緒に巻き上げたお寿司の詰合せです。",
+   "region_text": "福島県、新潟県、北陸",
+   "launch_date": "2026-11-17",
+   "url": "https://conbini.netaful.jp/items/seven-041527.html",
+   "review_url": null,
+   "review_title": null
+  },
+  {
+   "site": "conbini",
+   "site_name": "コンビニポチ",
+   "site_url": "https://conbini.netaful.jp",
+   "chain": "seven",
+   "chain_name": "セブンイレブン",
    "product_id": "045070",
    "name": "長州どりのたれかつ丼　むね肉使用　温玉入り",
    "category": null,
@@ -34010,6 +34070,26 @@
    "region_text": null,
    "launch_date": "2026-11-23",
    "url": "https://conbini.netaful.jp/items/lawson-1534542.html",
+   "review_url": null,
+   "review_title": null
+  },
+  {
+   "site": "cupmen",
+   "site_name": "カップ麺ポチ",
+   "site_url": "https://cupmen.netaful.jp",
+   "chain": "myojo",
+   "chain_name": "明星食品",
+   "product_id": "14051",
+   "name": "明星 麺神カップ 札幌風ブラック醤油ラーメン",
+   "category": null,
+   "price": 300,
+   "price_max": null,
+   "price_tax": "excl",
+   "price_note": null,
+   "description": null,
+   "region_text": null,
+   "launch_date": "2026-11-23",
+   "url": "https://cupmen.netaful.jp/items/myojo-14051.html",
    "review_url": null,
    "review_title": null
   },
