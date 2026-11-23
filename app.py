@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""新発売ポチ: 食ポチ5サイト（コンビニ・ファストフード・カップ麺・カフェ・回転寿司）が
+"""新発売ポチ: 食ポチ6サイト（コンビニ・ファストフード・カップ麺・カフェ・回転寿司・ファミレス）が
 記録している新商品を、発売日で横断集約するサイト。
 
 起動（ローカル）:
@@ -8,7 +8,7 @@
 
 守っている方針（詳細は README.md）
 - 掲載するのは発売日（launch_date）が記録されている商品だけ。発売日がない商品は載せない。
-- 商品データは scripts/aggregate.py が5サイトの data/products から正規化した
+- 商品データは scripts/aggregate.py が6サイトの data/products から正規化した
   data/products.json を読むだけ（このアプリは元データには触れない）。
 - 価格は税込を優先し、税抜しかない商品は「（税抜）」と明示する。推測で換算しない。
 - 商品画像は元データに無いため使わない。テキスト中心のカードにする。
@@ -29,14 +29,14 @@ from icon_guess import guess_icon
 # ---------- サイト名・基本設定 ----------
 SITE_NAME = "新発売ポチ"
 TAGLINE = "今日発売の新商品を、まとめてチェック"
-DESCRIPTION = ("コンビニ・ファストフード・カップ麺・カフェ・回転寿司の新商品を、発売日ごとに"
+DESCRIPTION = ("コンビニ・ファストフード・カップ麺・カフェ・回転寿司・ファミレスの新商品を、発売日ごとに"
                "横断してまとめています。今日発売・今週発売の新商品が1ページで分かります。")
 SITE_URL = os.environ.get("SITE_URL", "https://shinhatsubai.netaful.jp").rstrip("/")
 # GA4 の測定ID（G-XXXXXXXXXX）。空ならタグを出さない。本番化のときに環境変数で渡す
 GA4_ID = os.environ.get("GA4_ID", "")
 
 # 共通ページテンプレート・文言を最後に変えた日（sitemap.xml の lastmod の下限）
-PAGES_UPDATED = "2026-11-22"
+PAGES_UPDATED = "2026-11-23"
 
 # フッターの関連サイト（ポチシリーズ。新発売ポチ自身は載せない）
 SERIES_SITES = (
@@ -70,6 +70,7 @@ GENRES = (
     ("cupmen", "カップ麺"),
     ("cafe", "カフェ"),
     ("sushi", "回転寿司"),
+    ("famires", "ファミレス"),
 )
 GENRE_NAMES = dict(GENRES)
 
@@ -204,7 +205,7 @@ BASE_TEMPLATE = """<!DOCTYPE html>
 <main>
 {{CONTENT}}</main>
 <footer class="site-footer">
-<p>{{SITE_NAME}}は、コンビニポチ・ファストフードポチ・カップ麺ポチ・カフェポチ・回転寿司ポチが記録している新商品の情報を、発売日で横断してまとめています。商品の詳細（栄養成分など）は各商品のリンク先（元のポチ）でご確認ください。</p>
+<p>{{SITE_NAME}}は、コンビニポチ・ファストフードポチ・カップ麺ポチ・カフェポチ・回転寿司ポチ・ファミレスポチが記録している新商品の情報を、発売日で横断してまとめています。商品の詳細（栄養成分など）は各商品のリンク先（元のポチ）でご確認ください。</p>
 <p>当サイトは各チェーン・各社とは関係のない非公式サイトです。価格・発売日は、元のポチが公式の案内を確認した時点のものです。最新の情報は各チェーンの公式サイトでご確認ください。</p>
 <p>当サイトはアクセス解析（Googleアナリティクス）を使っています。Cookieを使うことがあります。</p>
 <p><a href="/">トップ</a></p>
@@ -348,7 +349,7 @@ ICON_LABELS = {
     "alcohol": "お酒", "other": "その他",
 }
 # 元データにカテゴリーがないとき、商品名から推定してよいサイト（セブン・ローソン・回転寿司など）
-GUESS_SITES = ("conbini", "sushi")
+GUESS_SITES = ("conbini", "sushi", "famires")
 
 
 def _category_icon(p):
@@ -364,6 +365,8 @@ def _category_icon(p):
         return (slug, cat) if slug else None
     if p["site"] in GUESS_SITES:
         slug = guess_icon(p.get("name"), p["site"])
+        if p["site"] == "famires" and slug == "ice":
+            slug = "sweets"  # ファミレスの「アイス添え」等はデザートとして扱う（アイス単品の商品はない）
         if slug:
             return slug, ICON_LABELS[slug]
     return None
@@ -460,7 +463,7 @@ def index():
     ref = reference_date()
     ref_str = ref.isoformat()
     content = ('<section class="hero"><p class="intro">コンビニ・ファストフード・カップ麺・カフェ・'
-               '回転寿司の新商品を発売日ごとにまとめています。今日（%s）は%d件の新商品が発売です。'
+               '回転寿司・ファミレスの新商品を発売日ごとにまとめています。今日（%s）は%d件の新商品が発売です。'
                # 当日発売の約14%は各社の朝の巡回で初めて登録されるため、更新時刻を明記して期待値を合わせる（2026-11-19 マサト判断）
                '毎日10:00に更新しています。当日発売の商品は10:00の更新で反映されます。%s</p></section>\n'
                % (e(_fmt_date(ref_str)), len(STORE.on(ref_str)), e(CAUTION)))
@@ -502,7 +505,7 @@ def date_page(date_str):
         abort(404)
     e = html.escape
     title = "%s発売の新商品" % _fmt_date(date_str)
-    desc = "%sに発売された新商品%d件の一覧です。コンビニ・ファストフード・カップ麺・カフェ・回転寿司の新商品をまとめました。" % (
+    desc = "%sに発売された新商品%d件の一覧です。コンビニ・ファストフード・カップ麺・カフェ・回転寿司・ファミレスの新商品をまとめました。" % (
         _fmt_date(date_str), len(items))
     canonical = "%s/date/%s/" % (SITE_URL, date_str)
     content = ('<section class="hero"><h1>%s</h1>\n%s'

@@ -19,9 +19,9 @@ class StoreTest(unittest.TestCase):
         for p in appmod.STORE.products:
             self.assertTrue(appmod._is_date(p["launch_date"]))
 
-    def test_genres_are_five(self):
+    def test_genres_are_six(self):
         self.assertEqual([slug for slug, _ in appmod.GENRES],
-                         ["conbini", "fastfood", "cupmen", "cafe", "sushi"])
+                         ["conbini", "fastfood", "cupmen", "cafe", "sushi", "famires"])
         for slug, _name in appmod.GENRES:
             self.assertGreater(len(appmod.STORE.genre_products(slug)), 0)
 
@@ -143,6 +143,45 @@ class CategoryIconTest(unittest.TestCase):
         for name, site, want in cases:
             self.assertEqual(appmod.guess_icon(name, site), want, name)
 
+    def test_famires_loaded_with_tax_included_price(self):
+        fam = [p for p in appmod.STORE.products if p["site"] == "famires"]
+        self.assertGreater(len(fam), 0)
+        for p in fam:
+            self.assertEqual(p["site_name"], "ファミレスポチ")
+            self.assertEqual(p["price_tax"], "incl")
+            self.assertIsInstance(p["price"], int)
+            self.assertTrue(p["url"].startswith("https://famires.netaful.jp/items/"))
+        self.assertEqual({p["chain"] for p in fam} - {"dennys"}, set())  # ジョナサンは発売日なしで載らない
+        self.assertEqual(appmod.GENRE_NAMES["famires"], "ファミレス")
+
+    def test_famires_icon_guess(self):
+        cases = [("味噌らぁ麺・改～五重の味噌", "noodles"), ("おいもプリン", "sweets"),
+                 ("蜜いものブリュレパンケーキ（パンケーキ4枚）", "sweets"), ("蜜いものキャラメリゼ～バニラアイス添え", "sweets"),
+                 ("さつまいもアイスとあずきの白蜜ゼリー", "sweets")]
+        for name, want in cases:
+            p = self._sample("famires")
+            p["category"] = None
+            p["name"] = name
+            self.assertEqual(appmod._category_icon(p)[0], want, name)
+        p = self._sample("famires")
+        p["category"] = None
+        p["name"] = "ニラともやしのシャキシャキ焼き"
+        self.assertIsNone(appmod._category_icon(p))  # 決まらないものは出さない
+        p["name"] = "蜜いものパルフェ"  # 「パルフェ」は icon_guess.py の規則に無い（正本の変更は別件）。決まらないので出さない
+        self.assertIsNone(appmod._category_icon(p))
+
+    def test_famires_in_feed(self):
+        f = appmod.build_feed(datetime.date(2026, 10, 28), generated="2026-10-28T10:00:00+09:00")
+        fam = [i for i in f["items"] if i["source"] == "famires"]
+        self.assertGreater(len(fam), 0)
+        for i in fam:
+            self.assertEqual(i["source_name"], "ファミレスポチ")
+            self.assertEqual(i["brand"], "デニーズ")
+            self.assertTrue(i["id"].startswith("famires:dennys-"))
+            if i["icon"]:
+                self.assertTrue(i["icon"].startswith("https://shinhatsubai.netaful.jp/static/icons/cat/"))
+        self.assertTrue(any(i["icon"] for i in fam))
+
     def test_guess_labels_cover_all_slugs(self):
         base = os.path.join(os.path.dirname(appmod.__file__), "static", "icons", "cat")
         for slug in appmod.ICON_LABELS:
@@ -216,7 +255,7 @@ class FeedTest(unittest.TestCase):
         self.assertTrue(all("2026-11-15" <= d <= "2026-11-18" for d in dates))
         self.assertEqual(len({i["id"] for i in f["items"]}), len(f["items"]))
         for i in f["items"]:
-            self.assertIn(i["source"], ("conbini", "fastfood", "cafe", "sushi", "cupmen"))
+            self.assertIn(i["source"], ("conbini", "fastfood", "cafe", "sushi", "cupmen", "famires"))
             self.assertTrue(i["url"].startswith("https://"))
             self.assertIsNone(i["image"])
             self.assertTrue(i["brand"])  # チェーン名（例「スターバックス」）

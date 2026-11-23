@@ -21,9 +21,9 @@
 - 事実と推測を分けて書く。確認できていないことは未確認と明記する。
 
 ## このリポジトリ固有の注意
-対象サイト：https://shinhatsubai.netaful.jp/（新発売ポチ。食ポチ5サイトの新商品を発売日で集約）。
+対象サイト：https://shinhatsubai.netaful.jp/（新発売ポチ。食ポチ6サイトの新商品を発売日で集約）。
 
-- データ源の5リポジトリ（conbini・fastfood・cupmen・cafe・sushi）は読み取りのみ。このリポジトリの作業でそちらを変更しない。
-- 更新は Cloud Scheduler が毎朝10:00（JST）に .github/workflows/update.yml を起動する。5サイトの更新（7:00〜9:00）の後に走る前提なので、時刻を変えるときは順番を崩さない。
+- データ源の6リポジトリ（conbini・fastfood・cupmen・cafe・sushi・famires）は読み取りのみ。このリポジトリの作業でそちらを変更しない。
+- 更新は Cloud Scheduler が毎朝10:00（JST）に .github/workflows/update.yml を起動する。6サイトの更新（7:00〜9:30）の後に走る前提なので、時刻を変えるときは順番を崩さない。
 - 生成物（docs/）は直接直さない。`scripts/build_static.py` で作り直す。手元で生成するときは GA4_ID を付ける（付けないと計測タグが消える）。共通テンプレートを変えたら app.py の PAGES_UPDATED も更新する。
 - カテゴリーアイコンの推定規則（icon_guess.py）はここが正本。直したらコンビニ・ファストフード・カフェ・回転寿司の各ポチにも同じ変更を入れる。

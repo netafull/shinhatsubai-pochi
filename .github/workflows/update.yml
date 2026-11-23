@@ -1,6 +1,6 @@
 # 新発売ポチの更新ワークフロー。
 # Cloud Scheduler（ジョブ名 shinhatsubai-pochi-update、毎日10:00 JST）が workflow_dispatch で起動する。
-# 5つの食ポチの更新（7:00〜9:00）が終わった後に、データ集約→静的書き出し→docs/ の更新までを行う。
+# 6つの食ポチの更新（7:00〜9:30）が終わった後に、データ集約→静的書き出し→docs/ の更新までを行う。
 # schedule: を使わないのは意図的。GitHub の cron は負荷が高いと実行がスキップされるため。
 name: update
 
@@ -46,6 +46,11 @@ jobs:
         with:
           repository: netafull/sushi-pochi
           path: sources/sushi-pochi
+          fetch-depth: 1
+      - uses: actions/checkout@v4
+        with:
+          repository: netafull/famires-pochi
+          path: sources/famires-pochi
           fetch-depth: 1
 
       - uses: actions/setup-python@v5
