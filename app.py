@@ -48,6 +48,7 @@ SERIES_SITES = (
     ("コンビニポチ", "コンビニ新商品アーカイブ", "https://conbini.netaful.jp/"),
     ("ファストフードポチ", "ファストフード限定メニュー", "https://fastfood.netaful.jp/"),
     ("カフェポチ", "カフェ季節限定メニュー", "https://cafe.netaful.jp/"),
+    ("ファミレスポチ", "ファミレスの期間限定フェア", "https://famires.netaful.jp/"),
     ("回転寿司ポチ", "回転寿司の期間限定ネタ", "https://sushi.netaful.jp/"),
     ("カップ麺ポチ", "カップ麺の新商品", "https://cupmen.netaful.jp/"),
     ("ホテルポチ", "空室ホテルを安い順に検索", "https://hotel.netaful.jp/"),
