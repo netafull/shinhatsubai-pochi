@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
-"""食ポチ5サイトの商品データを読み、正規化した1本の JSON（data/products.json）を生成する。
+"""食ポチ6サイトの商品データを読み、正規化した1本の JSON（data/products.json）を生成する。
 
 使い方:
   .venv/bin/python scripts/aggregate.py [--repos <リポジトリ群の親ディレクトリ>]
   （既定: 環境変数 POCHI_REPOS があればそれ、なければこのプロジェクトの親ディレクトリ。
-   ローカルでは ~/Desktop/Claude 直下に5リポジトリが並んでいる）
+   ローカルでは ~/Desktop/Claude 直下に6リポジトリが並んでいる）
 
 データ源（読み取りのみ。書き換えはしない）:
-  conbini-pochi / fastfood-pochi / cupmen-pochi / cafe-pochi / sushi-pochi の
+  conbini-pochi / fastfood-pochi / cupmen-pochi / cafe-pochi / sushi-pochi / famires-pochi の
   data/products/<chain>/<product_id>.json、config.json、data/netaful_reviews.json
 
 正規化の方針:
@@ -17,7 +17,7 @@
   - conbini: price_incl_tax → 税込（float のことがある。例 213.84。整数値なら int にし、
     それ以外は float のまま持つ）。なければ price_excl_tax → 税抜
   - cupmen:  price_excl_tax のみ → 税抜
-  - fastfood / cafe / sushi: price は税込（各商品の price_note が税込表記であることを確認済み）。
+  - fastfood / cafe / sushi / famires: price は税込（各商品の price_note が税込表記であることを確認済み）。
     cafe は price_max がある場合は価格帯として持つ。
 - チェーン表示名は各サイトの config.json の chains[].name を使う。
 - 商品ページURLは https://<サイト>.netaful.jp/items/{chain}-{product_id}.html で組み立てる
@@ -47,6 +47,7 @@ SITES = (
     ("cupmen-pochi", "cupmen", "カップ麺ポチ"),
     ("cafe-pochi", "cafe", "カフェポチ"),
     ("sushi-pochi", "sushi", "回転寿司ポチ"),
+    ("famires-pochi", "famires", "ファミレスポチ"),
 )
 
 
@@ -82,7 +83,7 @@ def _price_of(site_slug, raw):
         if isinstance(raw.get("price_excl_tax"), int):
             return raw["price_excl_tax"], None, "excl"
         return None, None, None
-    # fastfood / cafe / sushi: price は税込
+    # fastfood / cafe / sushi / famires: price は税込（famires の price_excl_tax は使わない）
     price = raw.get("price") if isinstance(raw.get("price"), int) else None
     price_max = raw.get("price_max") if isinstance(raw.get("price_max"), int) else None
     if price is not None and price_max is not None and price_max <= price:
@@ -183,9 +184,9 @@ def aggregate(repos_dir):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="食ポチ5サイトの商品データを data/products.json に集約する")
+    parser = argparse.ArgumentParser(description="食ポチ6サイトの商品データを data/products.json に集約する")
     parser.add_argument("--repos", default=DEFAULT_REPOS,
-                        help="5リポジトリが並ぶ親ディレクトリ"
+                        help="6リポジトリが並ぶ親ディレクトリ"
                              "（既定: 環境変数 POCHI_REPOS、なければこのプロジェクトの親ディレクトリ）")
     parser.add_argument("--out", default=os.path.join(BASE_DIR, "data", "products.json"),
                         help="出力先（既定: data/products.json）")
@@ -195,7 +196,7 @@ def main():
     dates = [p["launch_date"] for p in products]
     doc = {
         "generated_at": datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=9))).isoformat(timespec="seconds"),
-        "note": ("データ源は %s 配下の5リポジトリ（読み取りのみ）。"
+        "note": ("データ源は %s 配下の6リポジトリ（読み取りのみ）。"
                  "取り込み時点のコミットは sources を参照。" % args.repos),
         "sources": {name: _git_head(os.path.join(args.repos, name)) for name, _slug, _label in SITES},
         "stats": stats,
