@@ -151,7 +151,9 @@ class CategoryIconTest(unittest.TestCase):
             self.assertEqual(p["price_tax"], "incl")
             self.assertIsInstance(p["price"], int)
             self.assertTrue(p["url"].startswith("https://famires.netaful.jp/items/"))
-        self.assertEqual({p["chain"] for p in fam} - {"dennys"}, set())  # ジョナサンは発売日なしで載らない
+        # 開始日のある商品だけ載る。ジョナサンは開始日を取らない(記録開始日だけ)ので載らない。
+        # チェーンは増えていくので「デニーズだけ」とは決めない(2026-11-23 ココス等の追加で落ちた)
+        self.assertNotIn("jonathan", {p["chain"] for p in fam})
         self.assertEqual(appmod.GENRE_NAMES["famires"], "ファミレス")
 
     def test_famires_icon_guess(self):
