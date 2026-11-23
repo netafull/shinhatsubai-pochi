@@ -1,26 +1,26 @@
 {
- "generated_at": "2026-11-23T14:55:47+09:00",
+ "generated_at": "2026-11-23T15:16:26+09:00",
  "note": "データ源は sources 配下の6リポジトリ（読み取りのみ）。取り込み時点のコミットは sources を参照。",
  "sources": {
   "conbini-pochi": {
-   "commit": "86bf0ff",
-   "date": "2026-11-23T14:52:55+09:00"
+   "commit": "d28c3ca",
+   "date": "2026-11-23T15:16:12+09:00"
   },
   "fastfood-pochi": {
-   "commit": "1bf7dcf",
-   "date": "2026-11-23T14:53:04+09:00"
+   "commit": "90a2331",
+   "date": "2026-11-23T06:03:36Z"
   },
   "cupmen-pochi": {
-   "commit": "fac2b7d",
-   "date": "2026-11-23T14:53:21+09:00"
+   "commit": "001c65e",
+   "date": "2026-11-23T05:56:33Z"
   },
   "cafe-pochi": {
-   "commit": "a4c8153",
-   "date": "2026-11-23T14:53:11+09:00"
+   "commit": "4e8381b",
+   "date": "2026-11-23T05:57:14Z"
   },
   "sushi-pochi": {
-   "commit": "6e82279",
-   "date": "2026-11-23T14:53:16+09:00"
+   "commit": "a923d76",
+   "date": "2026-11-23T05:56:46Z"
   },
   "famires-pochi": {
    "commit": "4964fba",
