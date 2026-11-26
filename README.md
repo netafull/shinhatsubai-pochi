@@ -81,7 +81,7 @@ cd ~/Desktop/Claude/shinhatsubai-pochi
 
 `.github/workflows/update.yml`（`workflow_dispatch` のみ）が、6つの公開リポジトリ（netafull/conbini-pochi ほか）を `sources/` にチェックアウトし、集約→静的書き出し→テストを実行して、`docs/` と `data/` に差分があればコミット・push します（`sources/` は git 管理外）。
 
-- 起動は Cloud Scheduler のジョブ `shinhatsubai-pochi-update`（毎日10:00 JST、6サイトの更新 7:00〜9:30 の後）。`schedule:` を使わないのは、GitHub の cron が高負荷時にスキップされるため。
+- 起動は Cloud Scheduler のジョブ `shinhatsubai-pochi-update`（毎日8:00 JST、6サイトの更新 7:00〜7:45頃 の後）。`schedule:` を使わないのは、GitHub の cron が高負荷時にスキップされるため。
 - GA4 は GitHub のリポジトリ変数 `GA4_ID` を設定すれば、ビルド時にタグが入ります（未設定なら出力なし）。
 - `data/products.json` は git 管理に含めます（アプリとテストの入力で、差分履歴も残るため）。CI では毎回再生成されます。
 
