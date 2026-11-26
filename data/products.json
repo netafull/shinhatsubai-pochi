@@ -1,30 +1,30 @@
 {
- "generated_at": "2026-11-26T09:22:37+09:00",
+ "generated_at": "2026-11-27T08:00:21+09:00",
  "note": "データ源は sources 配下の6リポジトリ（読み取りのみ）。取り込み時点のコミットは sources を参照。",
  "sources": {
   "conbini-pochi": {
-   "commit": "04606a5",
-   "date": "2026-11-25T22:02:12Z"
+   "commit": "60f2e73",
+   "date": "2026-11-26T22:09:06Z"
   },
   "fastfood-pochi": {
-   "commit": "e2fcd09",
-   "date": "2026-11-25T22:42:37Z"
+   "commit": "117654f",
+   "date": "2026-11-26T22:40:58Z"
   },
   "cupmen-pochi": {
-   "commit": "832d2c5",
-   "date": "2026-11-26T09:15:20+09:00"
+   "commit": "cce0c58",
+   "date": "2026-11-26T22:20:41Z"
   },
   "cafe-pochi": {
-   "commit": "334c792",
-   "date": "2026-11-25T23:02:01Z"
+   "commit": "6fa1b10",
+   "date": "2026-11-26T22:06:31Z"
   },
   "sushi-pochi": {
-   "commit": "19d3d39",
-   "date": "2026-11-25T23:32:15Z"
+   "commit": "0d3b643",
+   "date": "2026-11-26T22:20:08Z"
   },
   "famires-pochi": {
-   "commit": "6c42aa9",
-   "date": "2026-11-26T00:21:40Z"
+   "commit": "3671775",
+   "date": "2026-11-26T22:30:11Z"
   }
  },
  "stats": {
@@ -35,8 +35,8 @@
   },
   "fastfood": {
    "site_name": "ファストフードポチ",
-   "total": 1391,
-   "dated": 163
+   "total": 1427,
+   "dated": 167
   },
   "cupmen": {
    "site_name": "カップ麺ポチ",
@@ -22703,6 +22703,26 @@
    "review_title": null
   },
   {
+   "site": "fastfood",
+   "site_name": "ファストフードポチ",
+   "site_url": "https://fastfood.netaful.jp",
+   "chain": "yoshinoya",
+   "chain_name": "吉野家",
+   "product_id": "yoshinoyanodon-gyunikudofu-don",
+   "name": "牛肉豆腐丼",
+   "category": "吉野家の丼",
+   "price": 649,
+   "price_max": null,
+   "price_tax": "incl",
+   "price_note": "税込・店内の価格。表示は「並盛」の価格。テイクアウトは税率が違うため税込額が異なる場合があります（内訳は下の表）。店舗により価格・取り扱いが異なる場合があります。",
+   "description": null,
+   "region_text": null,
+   "launch_date": "2026-10-29",
+   "url": "https://fastfood.netaful.jp/items/yoshinoya-yoshinoyanodon-gyunikudofu-don.html",
+   "review_url": "https://netaful.jp/fast-food/0211730.html",
+   "review_title": "【吉野家】「牛肉豆腐丼」豆腐がたっぷりで予想外のずっしり感｜500g超えのボリュームに驚いた！"
+  },
+  {
    "site": "famires",
    "site_name": "ファミレスポチ",
    "site_url": "https://famires.netaful.jp",
@@ -35583,6 +35603,26 @@
    "review_title": null
   },
   {
+   "site": "fastfood",
+   "site_name": "ファストフードポチ",
+   "site_url": "https://fastfood.netaful.jp",
+   "chain": "katsuya",
+   "chain_name": "かつや",
+   "product_id": "23780",
+   "name": "黒の肉盛り丼",
+   "category": null,
+   "price": 869,
+   "price_max": null,
+   "price_tax": "incl",
+   "price_note": "税込。公式サイトの一覧に表示された価格。店舗により価格・取り扱いが異なる場合があります。",
+   "description": null,
+   "region_text": null,
+   "launch_date": "2026-11-20",
+   "url": "https://fastfood.netaful.jp/items/katsuya-23780.html",
+   "review_url": "https://netaful.jp/fast-food/0213014.html",
+   "review_title": "【かつや】「黒の肉盛り丼」生姜焼きは約17cm！実測538gで並盛でも大盛級の満腹感"
+  },
+  {
    "site": "sushi",
    "site_name": "回転寿司ポチ",
    "site_url": "https://sushi.netaful.jp",
@@ -39559,6 +39599,46 @@
    "region_text": null,
    "launch_date": "2026-11-25",
    "url": "https://sushi.netaful.jp/items/sushiro-5341.html",
+   "review_url": null,
+   "review_title": null
+  },
+  {
+   "site": "fastfood",
+   "site_name": "ファストフードポチ",
+   "site_url": "https://fastfood.netaful.jp",
+   "chain": "yoshinoya",
+   "chain_name": "吉野家",
+   "product_id": "set-gyusundubuchige-nabe-zen",
+   "name": "牛スンドゥブチゲ鍋膳",
+   "category": "定食",
+   "price": 954,
+   "price_max": null,
+   "price_tax": "incl",
+   "price_note": "税込・店内の価格。テイクアウトは税率が違うため税込額が異なる場合があります（内訳は下の表）。店舗により価格・取り扱いが異なる場合があります。",
+   "description": null,
+   "region_text": null,
+   "launch_date": "2026-11-26",
+   "url": "https://fastfood.netaful.jp/items/yoshinoya-set-gyusundubuchige-nabe-zen.html",
+   "review_url": null,
+   "review_title": null
+  },
+  {
+   "site": "fastfood",
+   "site_name": "ファストフードポチ",
+   "site_url": "https://fastfood.netaful.jp",
+   "chain": "yoshinoya",
+   "chain_name": "吉野家",
+   "product_id": "gentei-gyusundubuchige-nabe-single",
+   "name": "牛スンドゥブチゲ鍋（単品）",
+   "category": "定食",
+   "price": 844,
+   "price_max": null,
+   "price_tax": "incl",
+   "price_note": "税込・店内の価格。テイクアウトは税率が違うため税込額が異なる場合があります（内訳は下の表）。店舗により価格・取り扱いが異なる場合があります。",
+   "description": null,
+   "region_text": null,
+   "launch_date": "2026-11-26",
+   "url": "https://fastfood.netaful.jp/items/yoshinoya-gentei-gyusundubuchige-nabe-single.html",
    "review_url": null,
    "review_title": null
   },

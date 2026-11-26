@@ -3,8 +3,34 @@
  "site": "shinhatsubai",
  "site_name": "新発売ポチ",
  "site_url": "https://shinhatsubai.netaful.jp/",
- "generated": "2026-11-26T09:22:38+09:00",
+ "generated": "2026-11-27T08:00:22+09:00",
  "items": [
+  {
+   "id": "fastfood:yoshinoya-set-gyusundubuchige-nabe-zen",
+   "title": "牛スンドゥブチゲ鍋膳",
+   "url": "https://fastfood.netaful.jp/items/yoshinoya-set-gyusundubuchige-nabe-zen.html",
+   "date": "2026-11-26",
+   "note": "¥954",
+   "brand": "吉野家",
+   "image": null,
+   "image_link": null,
+   "source": "fastfood",
+   "source_name": "ファストフードポチ",
+   "icon": "https://shinhatsubai.netaful.jp/static/icons/cat/donburi.svg"
+  },
+  {
+   "id": "fastfood:yoshinoya-gentei-gyusundubuchige-nabe-single",
+   "title": "牛スンドゥブチゲ鍋（単品）",
+   "url": "https://fastfood.netaful.jp/items/yoshinoya-gentei-gyusundubuchige-nabe-single.html",
+   "date": "2026-11-26",
+   "note": "¥844",
+   "brand": "吉野家",
+   "image": null,
+   "image_link": null,
+   "source": "fastfood",
+   "source_name": "ファストフードポチ",
+   "icon": "https://shinhatsubai.netaful.jp/static/icons/cat/donburi.svg"
+  },
   {
    "id": "sushi:kappasushi-06457",
    "title": "あん肝ポン酢ジュレ軍艦",
@@ -628,32 +654,6 @@
    "source": "sushi",
    "source_name": "回転寿司ポチ",
    "icon": "https://shinhatsubai.netaful.jp/static/icons/cat/ice.svg"
-  },
-  {
-   "id": "sushi:sushiro-5339",
-   "title": "可哀想に！コラボファスナーポーチ付き つくローセット",
-   "url": "https://sushi.netaful.jp/items/sushiro-5339.html",
-   "date": "2026-11-25",
-   "note": "¥740",
-   "brand": "スシロー",
-   "image": null,
-   "image_link": null,
-   "source": "sushi",
-   "source_name": "回転寿司ポチ",
-   "icon": "https://shinhatsubai.netaful.jp/static/icons/cat/sushi.svg"
-  },
-  {
-   "id": "sushi:sushiro-5333",
-   "title": "第1弾 可哀想に！コラボすし皿付き ウーロン茶",
-   "url": "https://sushi.netaful.jp/items/sushiro-5333.html",
-   "date": "2026-11-25",
-   "note": "¥1,380",
-   "brand": "スシロー",
-   "image": null,
-   "image_link": null,
-   "source": "sushi",
-   "source_name": "回転寿司ポチ",
-   "icon": "https://shinhatsubai.netaful.jp/static/icons/cat/sushi.svg"
   }
  ]
 }
