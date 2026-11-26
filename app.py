@@ -465,8 +465,8 @@ def index():
     ref_str = ref.isoformat()
     content = ('<section class="hero"><p class="intro">コンビニ・ファストフード・カップ麺・カフェ・'
                '回転寿司・ファミレスの新商品を発売日ごとにまとめています。今日（%s）は%d件の新商品が発売です。'
-               # 当日発売の約14%は各社の朝の巡回で初めて登録されるため、更新時刻を明記して期待値を合わせる（2026-11-19 マサト判断）
-               '毎日10:00に更新しています。当日発売の商品は10:00の更新で反映されます。%s</p></section>\n'
+               # 当日発売の約14%は各社の朝の巡回で初めて登録されるため、更新時刻を明記して期待値を合わせる（2026-11-19 マサト判断、2026-11-26 に10:00から8:00へ前倒し）
+               '毎日8:00に更新しています。当日発売の商品は8:00の更新で反映されます。%s</p></section>\n'
                % (e(_fmt_date(ref_str)), len(STORE.on(ref_str)), e(CAUTION)))
     def dstr(delta):
         return (ref + datetime.timedelta(days=delta)).isoformat()
