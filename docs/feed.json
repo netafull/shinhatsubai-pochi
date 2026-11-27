@@ -3,8 +3,21 @@
  "site": "shinhatsubai",
  "site_name": "新発売ポチ",
  "site_url": "https://shinhatsubai.netaful.jp/",
- "generated": "2026-11-27T08:00:22+09:00",
+ "generated": "2026-11-28T08:00:30+09:00",
  "items": [
+  {
+   "id": "conbini:seven-054158",
+   "title": "コク旨たまごサラダロール",
+   "url": "https://conbini.netaful.jp/items/seven-054158.html",
+   "date": "2026-11-28",
+   "note": "¥149",
+   "brand": "セブンイレブン",
+   "image": null,
+   "image_link": null,
+   "source": "conbini",
+   "source_name": "コンビニポチ",
+   "icon": "https://shinhatsubai.netaful.jp/static/icons/cat/sandwich.svg"
+  },
   {
    "id": "fastfood:yoshinoya-set-gyusundubuchige-nabe-zen",
    "title": "牛スンドゥブチゲ鍋膳",
@@ -641,19 +654,6 @@
    "source": "fastfood",
    "source_name": "ファストフードポチ",
    "icon": "https://shinhatsubai.netaful.jp/static/icons/cat/donburi.svg"
-  },
-  {
-   "id": "sushi:sushiro-5338",
-   "title": "可哀想に！コラボステッカー付き わたあめアイスパフェ",
-   "url": "https://sushi.netaful.jp/items/sushiro-5338.html",
-   "date": "2026-11-25",
-   "note": "¥420",
-   "brand": "スシロー",
-   "image": null,
-   "image_link": null,
-   "source": "sushi",
-   "source_name": "回転寿司ポチ",
-   "icon": "https://shinhatsubai.netaful.jp/static/icons/cat/ice.svg"
   }
  ]
 }
