@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-28T08:00:29+09:00",
+ "generated_at": "2026-11-28T10:40:25+09:00",
  "note": "データ源は sources 配下の6リポジトリ（読み取りのみ）。取り込み時点のコミットは sources を参照。",
  "sources": {
   "conbini-pochi": {
@@ -7,8 +7,8 @@
    "date": "2026-11-27T22:12:04Z"
   },
   "fastfood-pochi": {
-   "commit": "5c157fa",
-   "date": "2026-11-27T13:21:54Z"
+   "commit": "728c7a8",
+   "date": "2026-11-28T00:56:11Z"
   },
   "cupmen-pochi": {
    "commit": "9867c8a",
@@ -35,8 +35,8 @@
   },
   "fastfood": {
    "site_name": "ファストフードポチ",
-   "total": 1743,
-   "dated": 179
+   "total": 1785,
+   "dated": 183
   },
   "cupmen": {
    "site_name": "カップ麺ポチ",
@@ -40099,6 +40099,86 @@
    "region_text": null,
    "launch_date": "2026-11-26",
    "url": "https://sushi.netaful.jp/items/kappasushi-06968.html",
+   "review_url": null,
+   "review_title": null
+  },
+  {
+   "site": "fastfood",
+   "site_name": "ファストフードポチ",
+   "site_url": "https://fastfood.netaful.jp",
+   "chain": "hidakaya",
+   "chain_name": "日高屋",
+   "product_id": "20261127",
+   "name": "もつ煮",
+   "category": "単品",
+   "price": 680,
+   "price_max": null,
+   "price_tax": "incl",
+   "price_note": "税込。公式サイトの一覧に表示された価格。店舗により価格・取り扱いが異なる場合があります。",
+   "description": null,
+   "region_text": null,
+   "launch_date": "2026-11-27",
+   "url": "https://fastfood.netaful.jp/items/hidakaya-20261127.html",
+   "review_url": null,
+   "review_title": null
+  },
+  {
+   "site": "fastfood",
+   "site_name": "ファストフードポチ",
+   "site_url": "https://fastfood.netaful.jp",
+   "chain": "hidakaya",
+   "chain_name": "日高屋",
+   "product_id": "20261127-2",
+   "name": "もつ煮定食",
+   "category": "定食",
+   "price": 930,
+   "price_max": null,
+   "price_tax": "incl",
+   "price_note": "税込。公式サイトの一覧に表示された価格。店舗により価格・取り扱いが異なる場合があります。",
+   "description": null,
+   "region_text": null,
+   "launch_date": "2026-11-27",
+   "url": "https://fastfood.netaful.jp/items/hidakaya-20261127-2.html",
+   "review_url": null,
+   "review_title": null
+  },
+  {
+   "site": "fastfood",
+   "site_name": "ファストフードポチ",
+   "site_url": "https://fastfood.netaful.jp",
+   "chain": "hidakaya",
+   "chain_name": "日高屋",
+   "product_id": "20261127-1",
+   "name": "もつ煮（小）",
+   "category": "おつまみ",
+   "price": 350,
+   "price_max": null,
+   "price_tax": "incl",
+   "price_note": "税込。公式サイトの一覧に表示された価格。店舗により価格・取り扱いが異なる場合があります。",
+   "description": null,
+   "region_text": null,
+   "launch_date": "2026-11-27",
+   "url": "https://fastfood.netaful.jp/items/hidakaya-20261127-1.html",
+   "review_url": null,
+   "review_title": null
+  },
+  {
+   "site": "fastfood",
+   "site_name": "ファストフードポチ",
+   "site_url": "https://fastfood.netaful.jp",
+   "chain": "hidakaya",
+   "chain_name": "日高屋",
+   "product_id": "801",
+   "name": "チゲ味噌ラーメン",
+   "category": "ラーメン",
+   "price": 790,
+   "price_max": null,
+   "price_tax": "incl",
+   "price_note": "税込。公式サイトの一覧に表示された価格。店舗により価格・取り扱いが異なる場合があります。",
+   "description": null,
+   "region_text": null,
+   "launch_date": "2026-11-27",
+   "url": "https://fastfood.netaful.jp/items/hidakaya-801.html",
    "review_url": null,
    "review_title": null
   },
